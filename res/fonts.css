@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'JBMono';
+    src: url('JBMono/jetbrainsmono-regular-webfont.woff2') format('woff2'),
+         url('JBMono/jetbrainsmono-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

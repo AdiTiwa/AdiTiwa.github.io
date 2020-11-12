@@ -1,5 +1,5 @@
 body{
-    font: "item";
+    font: "JBMono";
 }
 
 .nav li{
@@ -23,6 +23,10 @@ body{
     background-color: #5cff649a;
 }
 
+.nav .deativated{
+    color: #777777;
+}
+
 .nav .navleft{
     float: left;
 }
@@ -34,4 +38,14 @@ body{
 .title{
     font: "itim";
     padding-top: 5rem;
+}
+
+.subtitle{
+    color: #777777;
+    padding: 0.1rem;
+    padding-top: 0.1rem;
+}
+
+.titleBanner{
+    display: inline;
 }
