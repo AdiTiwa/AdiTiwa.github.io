@@ -1,3 +1,37 @@
+body{
+    font: "item";
+}
+
+.nav li{
+    list-style-type: none;
+    padding: 0.5rem;
+}
+
+.nav ul{
+    background-color: #b3b3b357;
+}
+
+.nav li:hover{
+    background-color: #b3b3b39c;
+}
+
+.nav .active{
+    background-color: #5cff6457;
+}
+
+.nav .active:hover{
+    background-color: #5cff649a;
+}
+
+.nav .navleft{
+    float: left;
+}
+
+.nav .navright{
+    float: right;
+}
+
 .title{
     font: "itim";
+    padding-top: 5rem;
 }
