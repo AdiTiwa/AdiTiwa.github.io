@@ -5,29 +5,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Itim:regular" rel="stylesheet">
         <link href="res/fonts/fonts.css" rel = "stylesheet">
-        <link rel = "stylesheet" href = "base.css">
+        <link href = "res/img/logo.png" rel = "icon" type = "image/png">
+        <link href = "base.css" rel = "stylesheet">
         <title>MaybeImACoder</title>
     </head>
     <body>
         <nav class = "nav">
             <ul>
-                <li class = "navleft">Home</li>
-                <li class = "navleft">About Me</li>
-                <li class = "navleft">Projects</li>
-                <li class = "navright">Programming Res</li>
-                <li class = "navright">Contact Me</li>
+                <li class = "navchild navleft"><a href = "#top">Back To Top</a></li>
+                <li class = "navchild navleft">About Me</li>
+                <li class = "navchild navleft">Projects</li>
+                <li class = "navchild navright">Programming Res</li>
+                <li class = "navchild navright">Contact Me</li>
             </ul>
         </nav>
         
-        <div class = "titleBanner">
-            <div class = "titleBannerText">
-                <h1 class="title">MaybeImACoder</h1>
+        <div class = "titleBanner" id = "top">
+            <div class = "titleChild titleBannerText">
+                <h1 class="title"><strong>MaybeImACoder</strong></h1>
                 <p class = "subtitle">Student</p>
                 <p class="subtitle">Somewhat Software Developer</p>
             </div>
-            <div class = "titleBannerImage">
-                
-            </div> 
+            <div class = "tittleChild">
+                <img src = 'res/img/logo.png' alt = "MaybeImACoder" class = "titleBannerImage">
+            </div>
         </div>
     </body>
 </html>

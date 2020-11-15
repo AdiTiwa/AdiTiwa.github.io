@@ -15,6 +15,10 @@ body{
     background-color: #b3b3b39c;
 }
 
+.navchild:link{
+    text-decoration: none;
+}
+
 .nav .active{
     background-color: #5cff6457;
 }
@@ -37,7 +41,6 @@ body{
 
 .title{
     font: "itim";
-    padding-top: 5rem;
 }
 
 .subtitle{
@@ -47,5 +50,27 @@ body{
 }
 
 .titleBanner{
-    display: inline;
+    padding-top: 15%;
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-bottom: 5%;
+
+    display: block;
+}
+
+.titleBannerText{
+    float: left;
+}
+
+.titleBannerImage{
+    width: 45%;
+    height: auto;
+    max-width: 450px;
+    min-width: 150px;
+
+    float: right;
+}
+
+.centered{
+    text-align: center;
 }
