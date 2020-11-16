@@ -1,5 +1,6 @@
 body{
     font: "itim";
+    color: #505050;
 }
 
 .nav li{
@@ -19,12 +20,23 @@ body{
     text-decoration: none;
 }
 
+
+.nav a{
+    text-decoration: none;
+    color: #2e2e2e;
+}
+
+.nav a:visited{
+    text-decoration: none;
+    color: #2e2e2e;
+}
+
 .nav .active{
-    background-color: #5cff6457;
+    color: #338f38;
 }
 
 .nav .active:hover{
-    background-color: #5cff649a;
+    background-color: #5cff643b;
 }
 
 .nav .deativated{
@@ -37,10 +49,6 @@ body{
 
 .nav .navright{
     float: right;
-}
-
-.title{
-    font: "itim";
 }
 
 .subtitle{
@@ -71,6 +79,47 @@ body{
     float: right;
 }
 
+.pageTitle{
+    padding-top: 10%;
+    display: block;
+}
+
 .centered{
     text-align: center;
+}
+
+.inTextA{
+    text-decoration: none;
+    color: #0000008e;
+}
+
+.inTextA:visited{
+    text-decoration: none;
+    color: #00000057;
+}
+
+@keyframes slight-bob{
+    0% {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    25%{
+        padding-top: 25px;
+        padding-bottom: 5px;
+    }
+    75%{
+        padding-top: 5px;
+        padding-bottom: 25px;
+    }
+    100%{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+.smallInstructions{
+    font-size: 15px;
+    animation-name: slight-bob;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
 }
