@@ -1,0 +1,137 @@
+@import url(https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+/* CSS VARIABLES */
+:root {
+    --terra-cotta: #ed6a5aff;
+    --tumbleweed: #f1ae8bff;
+    --pale-spring-bud: #f4f1bbff;
+    --tea-green: #c8d9bcff;
+    --opal: #9bc1bcff;
+    --light-slate-gray: #7c8c94ff;
+    --independence: #5d576bff;
+    --dark-grey: #222222;
+    --silver-metallic: #a2a1a6ff;
+    --alabaster: #e6ebe0ff;
+}
+
+* {
+    /* RESET ALL MARGINS */
+    margin  : 0;
+    padding : 0;
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+body {
+    font-family:"Rubik", sans-serif;
+    background-color: var(--alabaster);
+    color: var(--dark-grey);
+}
+
+button.accordion {
+    cursor: pointer;
+    background-color: var(--alabaster);
+    padding : 1rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.15vw;
+    transition: 0.75s;
+    font-family: 'Rubik', sans-serif;
+}
+
+button.accordion.active {
+    
+}
+
+button.accordion:hover {
+    
+}
+
+button.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
+}
+
+div.panel {
+    padding: 1rem;
+    word-wrap: break-word;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+    font-size: 0.95vw;
+    line-height: 1.15vw;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 1000vw;
+}
+
+span.em-light {
+    color: var(--terra-cotta);
+}
+
+.columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    align-items: flex-end;
+}
+
+.column {
+    flex: 1;
+}
+
+.padding {
+    padding: 6rem 3rem;
+}
+
+.writing-important {
+    user-select: all; /* supported by Chrome and Opera */
+   -webkit-user-select: all; /* Safari */
+   -khtml-user-select: all; /* Konqueror HTML */
+   -moz-user-select: all; /* Firefox */
+   -ms-user-select:all; /* Internet Explorer/Edge */
+}
+
+.large-writing {
+    font-size: 1.15vw;
+    line-height: 1.5vw;
+}
+.image-fill {
+    width: 100%;
+    height: 100%;
+}
+
+.small-img {
+    width: 100%;
+}
+
+#book-details {
+    font-size: 2rem;
+    background-color: var(--tea-green);
+}
+
+#book-details-info {
+    background-color: var(--tea-green);
+}
+
+#question-1 {
+    height: 6vw;
+}
+
+#question-2 {
+    height: 6vw;
+}
