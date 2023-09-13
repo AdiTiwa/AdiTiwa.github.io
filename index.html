@@ -6,103 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css" />
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
         <script src="https://cdn.tailwindcss.com"></script>
-        <title>AdiTiwa</title>
+        <title>Aditya Tiwari</title>
     </head>
-    <body class="bg-white dark:bg-gray-800">
-        <div class="p-3">
-            <div id="intro-section">
-                <h1 class="text-6xl p-5 text-green-800 dark:text-green-200 font-bold" id="title"> > Hey!</h1>
-                <p class="text-green-800 dark:text-white font-normal text-lg">My name is Aditya Tiwari and I am a 14 year old software developer. I spend a lot of time working on multiple small projects and trying to work on projects for hackathons. This page is a compilation of all the projects that I have worked on that I think are valuable and a quick explanation of what it does.</p>
+    <body class="bg-white">
+        <div class="p-3 align-middle inline-block">
+            <div id="intro-section" class="pt-[20vh]">
+                <h1 class="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% from- pb-5" id="title"> > Hey!</h1>
+                <p class="text-grey-800 font-normal pb-6">My name is <strong>Aditya Tiwari</strong> and I am a 15 year old software developer. I spend a lot of time working on multiple small projects (hackathons or wild ideas alike), or on data science projects to model the way. This page is a sort of second brain for my writing and my progress learning math or computer science. Take whatever you read here with a grain of salt.</p>
             </div>
-            <div id = "language-use">
-                <h2 class="text-xl text-green-800 dark:text-green-200 px-5 pt-5 pb-3">Languages I Use</h2>
-                <p class = "text-lg text-green-800 dark:text-white">Ranked by usage:</p>
-                <ul class="list-disc px-5 text-green-800 dark:text-white pb-5">
-                    <li>Python</li>
-                    <li>Javascript w. Node</li>
-                    <li>React JS (JavaScript)</li>
-                    <li>Flutter (Dart)</li>
-                    <li>HTML, CSS, JavaScript</li>
-                    <li>Rust</li>
-                    <li>C#</li>
-                    <li>C++</li>
-                    <li>Java</li>
-                    <li>Unity C#</li>
+            <hr>
+            <div class="mt-6">
+                <ul class="flex">
+                    <li class="pl-10 font-bold" ><a href="/projects.html">Projects</a></li>
+                    <li class="pl-10 line-through font-grey-300">Writing</li>
                 </ul>
             </div>
         </div>
-        <div id = "projects">
-            <h2 class="text-green-800 dark:text-green-200 text-4xl">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 content-evenly">
-                <a href="https://github.com/AdiTiwa/splack"
-                    class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Splack</h5>
-                    <p class="my-2 font-bold text-gray-600 dark:text-gray-300">Node JS</p>
-                    <hr>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">A new, custom made, language created to emulate the concepts behind React and other large javascript frameworks. In its final version it will come with a web server function, combined with a component system, as well as control-flow in files. It will have its own version of a style sheet, and will compile to html in runtime as to run the page as quick as possible.</p>
-                </a>
-                <a href="https://github.com/siddharth-r-tiwari/e-mc2-science-journal"
-                    class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">E = MC<sup>2</sup> Science Journal</h5>
-                    <p class="my-2 font-bold text-gray-600 dark:text-gray-300">React JS with Tailwind CSS</p>
-                    <hr>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">This website was created to replace the old version of the E = MC<sup>2</sup> science journal website for the UChicago professor David Mazziotti. The science journal is a collection of many different Regeneron scholars' papers, and is meant to encourage the youth to work towards new projects in science and be inspired by the ideas shown by the papers on the website.</p>
-                </a>
-                <a href="https:/github.com/aditiwa/stocky"
-                    class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Stocky</h5>
-                    <p class="my-2 font-bold text-gray-600 dark:text-gray-300">Made with Flask(python) Back-End with HTML, CSS, and JS Front-End</p>
-                    <hr>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">This project was a submission to the IMSAHacks hackathon, under the theme economics and education. The purpose of this app was to teach people the intuition that comes with stock trading without utilizing buying power, and teaching people the strategies that come in stock trading with no penalties for mistakes. However, instead of simple paper trading sites, it helps you out along side you trying your hand at the strategies, with a robot named Stocky.</p>
-                </a>
-                <a href="https:/github.com/aditiwa/classcore"
-                    class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">ClassCore</h5>
-                    <p class="my-2 font-bold text-gray-600 dark:text-gray-300">Made with Flask(python) Back-End with HTML, CSS, and JS
-                        Front-End</p>
-                    <hr>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">This project was a submission to a hackathon under the theme of education. It allows users to make documents and
-                    classes, all put together to make a learning platform made for specifically communities and researchers to teach the
-                    world about your specialties and your knowledge to teach others how you learn.</p>
-                </a>
-                <div href="https:/github.com/aditiwa/stocky"
-                    class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Quick Calculations</h5>
-                    <p class="my-2 font-bold text-gray-600 dark:text-gray-300">Made with Flutter framework in Dart</p>
-                        <hr>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">This project was a project to measure my proficiency in Flutter after finishing a tutorial app. This was my first
-                    attempt at making an app that I didn't have too much guidance on and it is simply just to recreate a game from the
-                    Nintendo DS called Calculations x100 found in the Brain Age game that I played a lot.</p>
-                </div>
-                <a href="https://aboveaverageprogrammer.itch.io/mastermind-re-made"
-                    class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Mastermind Re-Made</h5>
-                    <p class="my-2 font-bold text-gray-600 dark:text-gray-300">Made with GDScript in the Godot Game Engine</p>
-                    <hr>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">This game was made to restart myself from a small programming drought. This project was made to model after a board game
-                    that I like to play called Mastermind. This project was made in just a week to compare the result with the Backgrounder
-                    project.</p>
-                </a>
-                <a href="https://aboveaverageprogrammer.itch.io/backgrounder"
-                    class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Backgrounder</h5>
-                    <p class="my-2 font-bold text-gray-600 dark:text-gray-300">Made with GDScript in the Godot Game Engine</p>
-                    <hr>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">This game was a result of a Game Jam that I decided to participate in, with the theme being multiple dimensions. This
-                    was before I felt my footing with Godot as a game engine.</p>
-                </a>
-                <a href="https://aboveaverageprogrammer.itch.io/backgrounder"
-                    class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">DoorCam (Concept)</h5>
-                    <p class="my-2 font-bold text-gray-600 dark:text-gray-300">Made with Python</p>
-                    <hr>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Project here was made for a hackathon and won 2nd place in general for a door-enclosed biometric lock. The lock would be
-                    mechanical and contain many other security features, while letting people use the camera on the door be used in a
-                    similar fashion as a Ring doorbell.</p>
-                </a>
-            </div>
-        </div> 
-        <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+
+        <script src="index.js"></script>
+
+        <style>
+
+        </style>
     </body>
 </html>
