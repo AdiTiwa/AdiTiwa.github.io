@@ -55,7 +55,7 @@ canvas {
 }
 
 strong {
-    background: linear-gradient(to left, #6366F1 0 33%, #A855F7 33% 66%, #D946EF 66% 100%);
+    background: -webkit-linear-gradient(left, #6366F1, #A855F7, #D946EF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
