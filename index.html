@@ -2,33 +2,710 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css" />
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <script src="https://cdn.tailwindcss.com"></script>
-        <title>Aditya Tiwari</title>
-    </head>
-    <body class="bg-white">
-        <div class="p-3 align-middle inline-block">
-            <div id="intro-section" class="pt-[20vh]">
-                <h1 class="font-extrabold text-transparent text-6xl sm:text-8xl bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% from- pb-5" id="title"> > Hey!</h1>
-                <p class="text-grey-800 font-normal pb-6">My name is <strong>Aditya Tiwari</strong> and I am a 15 year old software developer. I spend a lot of time working on multiple small projects (hackathons or <span>wild</span> ideas alike), or on data science projects to model the way. This page is a sort of second brain for my writing and my progress learning math or computer science. Take whatever you read here with a grain of salt.</p>
-            </div>
-            <hr>
-            <div class="mt-6">
-                <ul class="flex">
-                    <li class="pl-10 font-bold" ><a href="/projects.html">Projects</a></li>
-                    <li class="pl-10 line-through font-grey-300">Writing</li>
-                </ul>
-            </div>
-        </div>
-
-        <script src="index.js"></script>
-
+        <title>Aditya Tiwari - Resume</title>
         <style>
+            /* Define color variables */
+            :root {
+                --navbar-bg: #d9c2a3; /* Previously hero gradient start */
+                --hero-bg-start: #eae0c8; /* Previously navbar background */
+                --hero-bg-end: #bfa58a; /* Hero gradient end */
+                --text-color: #4b3f2f; /* Text color */
+            }
 
+            /* Custom Tailwind configuration for serif fonts */
+            @import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+            
+            body {
+                font-family: "Gabarito", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 500;
+                font-style: normal;
+            }
+
+            /* Hide navbar initially */
+            .hidden-navbar {
+                display: none;
+            }
+
+            #navbar-wrapper {
+                height: 100vh; /* Make the container stretch to the full height of the viewport */
+            }
+
+            /* Enhanced blur transition effect */
+            .blur-transition {
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                background: linear-gradient(to bottom, 
+                    rgba(191, 165, 138, 0.8) 0%, 
+                    rgba(245, 245, 220, 0.9) 50%, 
+                    rgba(245, 245, 220, 1) 100%);
+            }
         </style>
+    </head>
+    <body class="bg-[#f5f5dc] text-[var(--text-color)]">
+
+        <!-- Floating Sidebar Navigation -->
+        <nav class="bg-[var(--navbar-bg)] shadow fixed h-[30%] top-[5%] md:h-[30%] w-16 rounded-lg flex flex-col justify-center items-start space-y-6 left-4 md:top-[35%] transition-all duration-300 hover:w-48 group z-50">
+            <a href="#projects" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
+                <i class="fas fa-project-diagram text-xl"></i>
+                <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">Projects</span>
+            </a>
+            <a href="#proficiencies" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
+                <i class="fas fa-tools text-xl"></i>
+                <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">Proficiencies</span>
+            </a>
+            <a href="#creative-works" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
+                <i class="fas fa-palette text-xl"></i>
+                <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">Creative Works</span>
+            </a>
+        </nav>
+
+        <!-- Add Three.js library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative bg-gradient-to-r from-[var(--hero-bg-start)] to-[var(--hero-bg-end)] text-[var(--text-color)] text-center h-[75vh] flex flex-col justify-end items-center pb-10 w-full overflow-hidden">
+            <!-- Three.js Background Canvas - bounded to hero -->
+            <canvas id="bg-canvas" class="absolute top-0 left-0 w-full h-full pointer-events-none"></canvas>
+            
+            <h1 class="relative z-10 text-5xl sm:text-6xl font-extrabold">hi! i'm aditya tiwari</h1>
+            <div class="relative z-10 mt-6 flex justify-center gap-4">
+                <a href="https://github.com/aditiwa" target="_blank" aria-label="GitHub" class="bg-[#8b7355] hover:bg-[#6b5940] text-white rounded-full p-3 shadow transition-colors duration-200 flex items-center">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=zNSjHNQAAAAJ" target="_blank" aria-label="Google Scholar" class="bg-[#bfa58a] hover:bg-[#a08a6a] text-white rounded-full p-3 shadow transition-colors duration-200 flex items-center">
+                    <i class="fas fa-graduation-cap text-2xl"></i>
+                </a>
+                <a href="https://open.spotify.com/user/v3p3smdpqgfuk7amyuxxj4lbj?si=de7c3db404cb482f" target="_blank" aria-label="Spotify" class="bg-[#1db954] hover:bg-[#168f3e] text-white rounded-full p-3 shadow transition-colors duration-200 flex items-center">
+                    <i class="fab fa-spotify text-2xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Blur separator -->
+        <div class="h-16 blur-transition"></div>
+
+        <!-- Projects Section -->
+        <section id="projects" class="bg-[#f5f5dc] text-[var(--text-color)] py-20 w-full">
+            <div class="container mx-auto px-6">
+                <!-- Two Column Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Current Projects Column -->
+                    <div class="relative border-2 border-[var(--navbar-bg)] rounded-lg p-6 pt-8">
+                        <!-- Fieldset-style label -->
+                        <div class="absolute -top-4 left-4 bg-[#f5f5dc] px-2 text-sm font-medium text-[var(--text-color)]">
+                            <h3 class="text-2xl font-semibold mb-6">Current Projects</h3> 
+                        </div>
+                        <div class="relative">
+                            <!-- Scroll Up Button -->
+                            <button id="current-scroll-up" class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
+                                <i class="fas fa-chevron-up text-[var(--text-color)]"></i>
+                            </button>
+                            
+                            <!-- Cards Container -->
+                            <div id="current-projects-container" class="h-[45rem] overflow-hidden relative">
+                                <div id="current-projects-carousel" class="space-y-4 transition-transform duration-500 ease-in-out">
+                                    <!-- Project Cards -->
+                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
+                                        <div class="flex" style="height:100%;">
+                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                <h4 class="text-xl font-bold mb-3">Genetic Ansatz Construction</h4>
+                                                <p class="text-gray-600 mb-4">Using typical measures of quantum circuits, our paper constructs and trains a reinforcement learning-based heuristic function to optimize using a genetic algorithm. In optimization, the algorithm constructs optimal circuits to use as ansatz for Variational Quantum Eigensolvers.</p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Cirq</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
+                                                <a href="https://github.com/AdiTiwa/QCE25" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                    <i class="fab fa-github text-lg"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
+                                        <div class="flex min-h-[20rem]">
+                                            <div class="flex-1 p-8 pr-8" style="width: 90%;">
+                                                <h4 class="text-xl font-bold mb-3">Tree-of-Thought Agreement/Cognitive Dissonance in LLMs</h4>
+                                                <p class="text-gray-600 mb-4">In models that corroborate the outputs of Large Language Models, possible biases in system prompts can lead to inaccuracies in generated answers. In order to diagnose and address "cognitive dissonance", we explore by prompting language models to "debate" over a generated tree of thought, and measure convergence on agreed solutions.</p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Language Models</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
+                                        <div class="flex min-h-[20rem]">
+                                            <div class="flex-1 p-8" style="width: 90%;">
+                                                <h4 class="text-xl font-bold mb-3">Hidden Subgroup Problem for Solvable Symmetric Groups</h4>
+                                                <p class="text-gray-600 mb-4">The Hidden Subgroup Problem is the problem (with respect to reduction) that underlies most cryptographic algorithms. This project inspects this problem over a specific type of group, namely the simplest non-abelian (non-commutative) structures: Symmetric Groups. We specific inspect the collection of groups that have a sub-normal/derived sequence, called solvable groups, due to observed potential in other abelian groups.</p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Group Theory</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Computational Theory</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <!-- Scroll Down Button -->
+                            <button id="current-scroll-down" class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
+                                <i class="fas fa-chevron-down text-[var(--text-color)]"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Past Projects Column -->
+                    <div class="relative border-2 border-[var(--navbar-bg)] rounded-lg p-6 pt-8">
+                        <!-- Fieldset-style label -->
+                        <div class="absolute -top-4 left-4 bg-[#f5f5dc] px-2 text-sm font-medium text-[var(--text-color)]">
+                            <h3 class="text-2xl font-semibold mb-6">Past Projects</h3> 
+                        </div>
+                        <div class="relative">
+                            <!-- Scroll Up Button -->
+                            <button id="past-scroll-up" class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
+                                <i class="fas fa-chevron-up text-[var(--text-color)]"></i>
+                            </button>
+                            
+                            <!-- Cards Container -->
+                            <div id="past-projects-container" class="h-[38rem] overflow-hidden relative">
+                                <div id="past-projects-carousel" class="space-y-4 transition-transform duration-500 ease-in-out">
+                                    <!-- Project Cards -->
+                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                        <div class="flex" style="height:100%;">
+                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                <h4 class="text-xl font-bold mb-3">MINDSTORES</h4>
+                                                <p class="text-gray-600 mb-4">Language Model powered agents are useful for planning tasks in embodied agents, but struggle on sufficiently large and complex systems- these systems are often called open-worlds. We rely on intuition from psychology to store experiences in environments to stimulate success and estimations, and find significant improvements when applying to common open-worlds like Minecraft. Presented at workshops at ICLR 2025.</p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Language Models</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
+                                                <a href="https://arxiv.org/abs/2501.19318" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                    <i class="fas fa-file-alt text-lg"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                        <div class="flex" style="height:100%;">
+                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                <h4 class="text-xl font-bold mb-3">Ant Colony Optimization for LLM Tree of Thoughts</h4>
+                                                <p class="text-gray-600 mb-4">Modern reasoning language models utilize intermediate reasoning steps to generate accurate solutions to difficult problems, but often can make mistakes through their reasoning chain after many iterations. This paper presents a method that strengthens exploration pathways for miniature expert "ant" LLMs to come to a consensus on optimal reasoning pathways in difficult problems.</p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Language Models</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
+                                                <a href="https://arxiv.org/abs/2501.19278" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                    <i class="fas fa-file-alt text-lg"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                        <div class="flex" style="height:100%;">
+                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                <h4 class="text-xl font-bold mb-3">HuaHuaQ: Toy Quantum Circuit Simulator</h4>
+                                                <p class="text-gray-600 mb-4">Understanding Quantum circuits is especially difficult when computer programs are often misunderstood- and HuaHuaQ was our toy model of quantum mechanics to understand their inner workings while allowing anyone to approach the difficult topic. It allows for a range of toolings, but maintains simplicity in its synatax to allow anyone to approach the library.</p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Library Development</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
+                                                <a href="https://github.com/AdiTiwa/huahuaq" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                    <i class="fab fa-github text-lg"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                        <div class="flex" style="height:100%;">
+                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                <h4 class="text-xl font-bold mb-3">Post-Quantum Encryption Library</h4>
+                                                <p class="text-gray-600 mb-4">Due to advances in Quantum Algorithms, such as Peter Shor's factoring algorithm, many modern encryption algorithms are under scrutiny. While hardware lags behind algorithm development, the possibility of cyber-attacks prompts the development of post-quantum encryption methods. With Doug Strain at Google's Quantum AI, we developed an example library for popular methods like Crystals-KYBER, as well as toy algorithms to be broken by quantum computers.</p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Rust</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Computational Theory</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
+                                                <a href="https://github.com/AdiTiwa/pq-encryption" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                    <i class="fab fa-github text-lg"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                        <div class="flex" style="height:100%;">
+                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                <h4 class="text-xl font-bold mb-3">Splack- HTML Transpiler/Webserver</h4>
+                                                <p class="text-gray-600 mb-4">Simple programming language to hydrate webpages with simple markup-like syntax with state preservation. Mostly used to test JavaScript proficiency and understanding of webservers- one of the few preserved small experiments with developing programming languages I have!</p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">JavaScript</span>
+                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Web Development</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
+                                                <a href="https://github.com/AdiTiwa/splack/" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                    <i class="fab fa-github text-lg"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <!-- Scroll Down Button -->
+                            <button id="past-scroll-down" class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
+                                <i class="fas fa-chevron-down text-[var(--text-color)]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proficiencies & Creative Works Section (Side-by-side) -->
+        <section class="bg-[#eae0c8] text-[var(--text-color)] py-20 w-full">
+            <div class="container mx-auto px-6">
+                <!-- Make the grid a flex container for equal height columns -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:flex md:flex-row">
+                    <!-- Timeline Section -->
+                    <div class="md:col-span-1 order-2 md:order-1 h-full flex flex-col" id="timeline-section">
+                        <h2 class="text-3xl font-bold mb-6">Past Experiences</h2>
+                        <!-- Vertical Timeline -->
+                        <div class="relative flex flex-col items-center">
+                            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#8b7355] via-[#bfa58a] to-[#d9c2a3] z-0"></div>
+                            <div class="flex flex-col items-center w-full z-10">
+                                <!-- Timeline Card 1 -->
+                                <div class="flex items-center w-full mb-8">
+                                    <div class="flex-1"></div>
+                                    <div class="flex flex-col items-center">
+                                        <div class="w-4 h-4 bg-[#8b7355] rounded-full mb-2"></div>
+                                        <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#8b7355] w-80">
+                                            <h4 class="font-semibold text-lg mb-1">Mentorship</h4>
+                                            <span class="text-sm text-gray-500">Google Quantum AI Labs</span>
+                                            <p class="text-sm mt-2 text-gray-600">Worked under Doug Strain to explore quantum computing and new quantum initiatives.</p>
+                                            <span class="block mt-2 text-xs text-[#8b7355]">Summer 2024 - Spring 2025</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1"></div>
+                                </div>
+                                <!-- Timeline Card 2 -->
+                                <div class="flex items-center w-full mb-8">
+                                    <div class="flex-1"></div>
+                                    <div class="flex flex-col items-center">
+                                        <div class="w-4 h-4 bg-[#bfa58a] rounded-full mb-2"></div>
+                                        <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#bfa58a] w-80">
+                                            <h4 class="font-semibold text-lg mb-1">Research Assistant</h4>
+                                            <span class="text-sm text-gray-500">a137.ai</span>
+                                            <p class="text-sm mt-2 text-gray-600">Developed papers for submission to ICML, ICLR, and TMLR.</p>
+                                            <span class="block mt-2 text-xs text-[#bfa58a]">Winter 2024</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Proficiencies Section -->
+                    <div class="md:col-span-2 order-1 md:order-2 h-full flex flex-col" id="proficiencies-section">
+                        <h2 class="text-3xl font-bold mb-6">Proficiencies</h2>
+                        <div class="grid grid-cols-2 gap-6">
+                            <!-- Programming Languages Block -->
+                            <div class="bg-white col-span-2 rounded-lg shadow-md p-6 border-l-4 border-[#8b7355]">
+                                <h3 class="text-xl font-semibold mb-3 flex items-center">
+                                    <i class="fas fa-code mr-2 text-[#8b7355]"></i> Programming Languages (Favorites!)
+                                </h3>
+                                In order of proficiency: 
+                                <div class="flex flex-wrap gap-3 pt-1">
+                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Python</span>
+                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Rust</span>
+                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">JavaScript</span>
+                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">C++</span>
+                                </div>
+                                <div class="mt-2 text-sm text-gray-600">
+                                    <ul class="list-disc list-inside">
+                                        <li>Python: Used for research, ML, scripting, and backend development.</li>
+                                        <li>Rust: Systems programming, cryptography, and high-performance applications.</li>
+                                        <li>JavaScript: Web development, interactive UIs, and tooling.</li>
+                                        <li>C++: Algorithmic programming, other low level programming.</li>
+                                    </ul>
+                                    <div class="mt-2">
+                                        <span class="font-semibold text-[#8b7355]">Other languages:</span>
+                                        <span class="ml-1">Go, Java, HTML/CSS, LaTeX</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <!-- Tools Block -->
+                            <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#bfa58a]">
+                                <h3 class="text-xl font-semibold mb-3 flex items-center">
+                                    <i class="fas fa-tools mr-2 text-[#bfa58a]"></i> Tools
+                                </h3>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="bg-[#f5f5dc] px-3 py-1 rounded text-sm font-medium">React</span>
+                                    <span class="bg-[#f5f5dc] px-3 py-1 rounded text-sm font-medium">Svelte</span>
+                                    <span class="bg-[#f5f5dc] px-3 py-1 rounded text-sm font-medium">Tailwind CSS</span>
+                                    <span class="bg-[#f5f5dc] px-3 py-1 rounded text-sm font-medium">Git</span>
+                                    <span class="bg-[#f5f5dc] px-3 py-1 rounded text-sm font-medium">Docker</span>
+                                </div>
+                            </div>
+                            <!-- Math Block -->
+                            <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#d9c2a3]">
+                                <h3 class="text-xl font-semibold mb-3 flex items-center">
+                                    <i class="fas fa-square-root-alt mr-2 text-[#d9c2a3]"></i> Math & Data
+                                </h3>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Linear Algebra</span>
+                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Algebra</span>
+                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Statistics</span>
+                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Calculus</span>
+                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Data Visualization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-[var(--navbar-bg)] text-[var(--text-color)] py-6 text-center w-full">
+            <p>&copy; 2025 Aditya Tiwari.</p>
+        </footer>
+
+        <!-- Three.js Background Animation Script -->
+        <script>
+            // Wait for DOM to be fully loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                // Three.js setup for background animation
+                const canvas = document.getElementById('bg-canvas');
+                const heroSection = document.getElementById('hero');
+                
+                if (!canvas || !heroSection) {
+                    console.error('Canvas or hero section not found');
+                    return;
+                }
+                
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, heroSection.offsetWidth / heroSection.offsetHeight, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+                
+                // Size canvas to hero section
+                renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
+                renderer.setClearColor(0x000000, 0); // Transparent background
+                
+                // Create dodecahedron geometry
+                const geometry = new THREE.DodecahedronGeometry(10, 0);
+                
+                // Create wireframe material with subtle color
+                const material = new THREE.MeshBasicMaterial({ 
+                    color: 0xf5f5dc, // Matching the hero gradient end color
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.3
+                });
+                
+                // Create the dodecahedron mesh
+                const dodecahedron = new THREE.Mesh(geometry, material);
+                scene.add(dodecahedron);
+                
+                // Create vertex labels
+                const vertices = geometry.attributes.position.array;
+                const uniqueVertices = [];
+                const vertexLabels = [];
+                
+                // Extract unique vertices (dodecahedron has 20 vertices)
+                for (let i = 0; i < vertices.length; i += 3) {
+                    const vertex = new THREE.Vector3(vertices[i], vertices[i + 1], vertices[i + 2]);
+                    
+                    // Check if this vertex already exists (within tolerance)
+                    let isUnique = true;
+                    for (let j = 0; j < uniqueVertices.length; j++) {
+                        if (vertex.distanceTo(uniqueVertices[j]) < 0.01) {
+                            isUnique = false;
+                            break;
+                        }
+                    }
+                    
+                    if (isUnique) {
+                        uniqueVertices.push(vertex);
+                    }
+                }
+                
+                // Create canvas for text texture
+                function createTextTexture(text) {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 64;
+                    canvas.height = 64;
+                    
+                    // Clear canvas
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    // Set text properties
+                    context.font = '18px Arial';
+                    context.fillStyle = '#4b3f2f';
+                    context.textAlign = 'center';
+                    context.textBaseline = 'middle';
+                    
+                    // Add text
+                    context.fillText(text, 32, 32);
+                    
+                    return new THREE.CanvasTexture(canvas);
+                }
+                
+                // Create billboards for each unique vertex
+                uniqueVertices.forEach((vertex, index) => {
+                    const texture = createTextTexture((index + 1).toString());
+                    const spriteMaterial = new THREE.SpriteMaterial({ 
+                        map: texture,
+                        transparent: true,
+                        opacity: 0.8
+                    });
+                    
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.copy(vertex);
+                    sprite.scale.set(1.2, 1.2, 1); // Slightly larger labels
+                    
+                    // Add sprite to dodecahedron so it rotates with it
+                    dodecahedron.add(sprite);
+                    vertexLabels.push(sprite);
+                });
+                
+                // Position camera
+                camera.position.z = 8;
+                camera.position.y = 4;
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    
+                    // Rotate the dodecahedron (and its vertex labels)
+                    dodecahedron.rotation.x += 0.003;
+                    dodecahedron.rotation.y += 0.005;
+                    dodecahedron.rotation.z += 0.002;
+                    
+                    // Update billboard orientations to always face camera
+                    vertexLabels.forEach(sprite => {
+                        sprite.lookAt(camera.position);
+                    });
+                    
+                    renderer.render(scene, camera);
+                }
+                
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    const heroRect = heroSection.getBoundingClientRect();
+                    camera.aspect = heroRect.width / heroRect.height;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(heroRect.width, heroRect.height);
+                });
+                
+                // Start animation
+                animate();
+                
+                console.log('Three.js initialized successfully with', uniqueVertices.length, 'vertex labels');
+            });
+        </script>
+
+        <!-- JavaScript to toggle navbar visibility and carousel functionality -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const heroSection = document.getElementById('hero');
+                // Note: navbarWrapper doesn't exist in current code, so removing that part
+
+                // Carousel functionality
+                function setupCarousel(carouselId, upButtonId, downButtonId) {
+                    const carousel = document.getElementById(carouselId);
+                    const upButton = document.getElementById(upButtonId);
+                    const downButton = document.getElementById(downButtonId);
+
+                    if (!carousel || !upButton || !downButton) {
+                        console.warn(`Carousel elements not found for ${carouselId}`);
+                        return;
+                    }
+
+                    const cards = carousel.children;
+                    if (cards.length === 0) return;
+
+                    let cardsPerView = 2;
+                    let cardHeight = cards[0].offsetHeight + 16; // card height + gap
+                    let currentIndex = 0;
+
+                    function getMaxIndex() {
+                        return Math.max(0, cards.length - cardsPerView);
+                    }
+
+                    function updateCarousel() {
+                        // Recalculate cardHeight and cardsPerView on resize
+                        cardHeight = cards[0].offsetHeight + 16;
+                        // Optionally, adjust cardsPerView based on screen size if needed
+                        // cardsPerView = window.innerWidth < 768 ? 1 : 2;
+                        const translateY = -currentIndex * cardHeight;
+                        carousel.style.transform = `translateY(${translateY}px)`;
+
+                        // Update button states
+                        upButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                        downButton.style.opacity = currentIndex >= getMaxIndex() ? '0.5' : '1';
+                        upButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+                        downButton.style.pointerEvents = currentIndex >= getMaxIndex() ? 'none' : 'auto';
+                    }
+
+                    upButton.addEventListener('click', () => {
+                        if (currentIndex > 0) {
+                            currentIndex--;
+                            updateCarousel();
+                        }
+                    });
+
+                    downButton.addEventListener('click', () => {
+                        if (currentIndex < getMaxIndex()) {
+                            currentIndex++;
+                            updateCarousel();
+                        }
+                    });
+
+                    // Responsive: update cardHeight and carousel position on resize
+                    window.addEventListener('resize', () => {
+                        updateCarousel();
+                    });
+
+                    // Initialize
+                    updateCarousel();
+                }
+
+                // Setup both carousels
+                setupCarousel('current-projects-carousel', 'current-scroll-up', 'current-scroll-down');
+                setupCarousel('past-projects-carousel', 'past-scroll-up', 'past-scroll-down');
+            });
+        </script>
+
+        <!-- Equalize Carousel Card Heights Script -->
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Utility to set all cards in both carousels to the same height (the tallest)
+            function equalizeCarouselCardHeights(carouselIds, containerIds) {
+                let maxHeight = 0;
+                let allCards = [];
+                carouselIds.forEach(id => {
+                    const carousel = document.getElementById(id);
+                    if (!carousel) return;
+                    const cards = Array.from(carousel.children);
+                    allCards = allCards.concat(cards);
+                    cards.forEach(card => {
+                        card.style.height = 'auto'; // Reset first
+                        const h = card.offsetHeight;
+                        if (h > maxHeight) maxHeight = h;
+                    });
+                });
+                // Set all cards to maxHeight
+                allCards.forEach(card => {
+                    card.style.height = maxHeight + 'px';
+                });
+                // Set containers to match card height (plus gap if needed)
+                containerIds.forEach(id => {
+                    const container = document.getElementById(id);
+                    if (container) {
+                        // If you have a gap between cards, add it here (e.g., 16px)
+                        container.style.height = (maxHeight + 16) + 'px';
+                    }
+                });
+                return maxHeight;
+            }
+
+            // Carousel functionality for one card at a time
+            function setupCarousel(carouselId, upButtonId, downButtonId, containerId) {
+                const carousel = document.getElementById(carouselId);
+                const upButton = document.getElementById(upButtonId);
+                const downButton = document.getElementById(downButtonId);
+                const container = document.getElementById(containerId);
+
+                if (!carousel || !upButton || !downButton) {
+                    console.warn(`Carousel elements not found for ${carouselId}`);
+                    return;
+                }
+
+                const cards = carousel.children;
+                if (cards.length === 0) return;
+
+                let cardsPerView = 1;
+                let cardHeight = cards[0].offsetHeight + 16; // card height + gap
+                let currentIndex = 0;
+
+                function getMaxIndex() {
+                    return Math.max(0, cards.length - cardsPerView);
+                }
+
+                function updateCarousel() {
+                    // Re-equalize heights and recalculate cardHeight
+                    cardHeight = cards[0].offsetHeight + 16;
+                    if (container) container.style.height = cardHeight + 'px';
+                    const translateY = -currentIndex * cardHeight;
+                    carousel.style.transform = `translateY(${translateY}px)`;
+
+                    // Update button states
+                    upButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                    downButton.style.opacity = currentIndex >= getMaxIndex() ? '0.5' : '1';
+                    upButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+                    downButton.style.pointerEvents = currentIndex >= getMaxIndex() ? 'none' : 'auto';
+                }
+
+                upButton.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+
+                downButton.addEventListener('click', () => {
+                    if (currentIndex < getMaxIndex()) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+
+                // Responsive: update cardHeight and carousel position on resize
+                window.addEventListener('resize', () => {
+                    equalizeCarouselCardHeights(['current-projects-carousel', 'past-projects-carousel'], ['current-projects-container', 'past-projects-container']);
+                    updateCarousel();
+                });
+
+                // Initialize
+                updateCarousel();
+            }
+
+            // Equalize card heights on load and setup carousels
+            equalizeCarouselCardHeights(
+                ['current-projects-carousel', 'past-projects-carousel'],
+                ['current-projects-container', 'past-projects-container']
+            );
+            setupCarousel('current-projects-carousel', 'current-scroll-up', 'current-scroll-down', 'current-projects-container');
+            setupCarousel('past-projects-carousel', 'past-scroll-up', 'past-scroll-down', 'past-projects-container');
+        });
+        </script>
     </body>
 </html>
