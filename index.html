@@ -111,7 +111,7 @@
                                 <div id="current-projects-carousel" class="space-y-4 transition-transform duration-500 ease-in-out">
                                     <!-- Project Cards -->
                                     <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
-                                        <div class="flex" style="height:100%;">
+                                        <div class="flex h-full" style="height:100%;">
                                             <div class="flex-1 p-8 pr-4" style="width: 90%;">
                                                 <h4 class="text-xl font-bold mb-3">Genetic Ansatz Construction</h4>
                                                 <p class="text-gray-600 mb-4">Using typical measures of quantum circuits, our paper constructs and trains a reinforcement learning-based heuristic function to optimize using a genetic algorithm. In optimization, the algorithm constructs optimal circuits to use as ansatz for Variational Quantum Eigensolvers.</p>
@@ -121,7 +121,16 @@
                                                     <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
                                                 </div>
                                             </div>
-                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
+                                            <div class="flex flex-col bg-[#8b7355] 
+                                                        w-[10%] 
+                                                        justify-center 
+                                                        md:static md:w-[10%] 
+                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                        md:flex-col flex-row
+                                                        items-center md:items-stretch
+                                                        transition-all duration-300
+                                                        "
+                                                 >
                                                 <a href="https://github.com/AdiTiwa/QCE25" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
                                                     <i class="fab fa-github text-lg"></i>
                                                 </a>
@@ -130,7 +139,7 @@
                                     </div>
 
                                     <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
-                                        <div class="flex min-h-[20rem]">
+                                        <div class="flex h-full">
                                             <div class="flex-1 p-8 pr-8" style="width: 90%;">
                                                 <h4 class="text-xl font-bold mb-3">Tree-of-Thought Agreement/Cognitive Dissonance in LLMs</h4>
                                                 <p class="text-gray-600 mb-4">In models that corroborate the outputs of Large Language Models, possible biases in system prompts can lead to inaccuracies in generated answers. In order to diagnose and address "cognitive dissonance", we explore by prompting language models to "debate" over a generated tree of thought, and measure convergence on agreed solutions.</p>
@@ -144,7 +153,7 @@
                                     </div>
 
                                     <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
-                                        <div class="flex min-h-[20rem]">
+                                        <div class="flex h-full">
                                             <div class="flex-1 p-8" style="width: 90%;">
                                                 <h4 class="text-xl font-bold mb-3">Hidden Subgroup Problem for Solvable Symmetric Groups</h4>
                                                 <p class="text-gray-600 mb-4">The Hidden Subgroup Problem is the problem (with respect to reduction) that underlies most cryptographic algorithms. This project inspects this problem over a specific type of group, namely the simplest non-abelian (non-commutative) structures: Symmetric Groups. We specific inspect the collection of groups that have a sub-normal/derived sequence, called solvable groups, due to observed potential in other abelian groups.</p>
@@ -183,7 +192,7 @@
                                 <div id="past-projects-carousel" class="space-y-4 transition-transform duration-500 ease-in-out">
                                     <!-- Project Cards -->
                                     <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
-                                        <div class="flex" style="height:100%;">
+                                        <div class="flex h-full">
                                             <div class="flex-1 p-8 pr-4" style="width: 90%;">
                                                 <h4 class="text-xl font-bold mb-3">MINDSTORES</h4>
                                                 <p class="text-gray-600 mb-4">Language Model powered agents are useful for planning tasks in embodied agents, but struggle on sufficiently large and complex systems- these systems are often called open-worlds. We rely on intuition from psychology to store experiences in environments to stimulate success and estimations, and find significant improvements when applying to common open-worlds like Minecraft. Presented at workshops at ICLR 2025.</p>
@@ -193,8 +202,19 @@
                                                     <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
                                                 </div>
                                             </div>
-                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
-                                                <a href="https://arxiv.org/abs/2501.19318" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                            <!-- Sidebar for desktop, repositioned for mobile -->
+                                            <div class="flex flex-col bg-[#8b7355] 
+                                                        w-[10%] 
+                                                        justify-center 
+                                                        md:static md:w-[10%] 
+                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                        md:flex-col flex-row
+                                                        items-center md:items-stretch
+                                                        transition-all duration-300
+                                                        "
+                                                 >
+                                                <a href="https://arxiv.org/abs/2501.19318" target="_blank"
+                                                   class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
                                                     <i class="fas fa-file-alt text-lg"></i>
                                                 </a>
                                             </div>
@@ -202,7 +222,7 @@
                                     </div>
 
                                     <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
-                                        <div class="flex" style="height:100%;">
+                                        <div class="flex h-full">
                                             <div class="flex-1 p-8 pr-4" style="width: 90%;">
                                                 <h4 class="text-xl font-bold mb-3">Ant Colony Optimization for LLM Tree of Thoughts</h4>
                                                 <p class="text-gray-600 mb-4">Modern reasoning language models utilize intermediate reasoning steps to generate accurate solutions to difficult problems, but often can make mistakes through their reasoning chain after many iterations. This paper presents a method that strengthens exploration pathways for miniature expert "ant" LLMs to come to a consensus on optimal reasoning pathways in difficult problems.</p>
@@ -212,8 +232,19 @@
                                                     <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
                                                 </div>
                                             </div>
-                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
-                                                <a href="https://arxiv.org/abs/2501.19278" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                            <!-- Sidebar for desktop, repositioned for mobile -->
+                                            <div class="flex flex-col bg-[#8b7355] 
+                                                        w-[10%] 
+                                                        justify-center 
+                                                        md:static md:w-[10%] 
+                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                        md:flex-col flex-row
+                                                        items-center md:items-stretch
+                                                        transition-all duration-300
+                                                        "
+                                                 >
+                                                <a href="https://arxiv.org/abs/2501.19278" target="_blank"
+                                                   class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
                                                     <i class="fas fa-file-alt text-lg"></i>
                                                 </a>
                                             </div>
@@ -221,7 +252,7 @@
                                     </div>
 
                                     <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
-                                        <div class="flex" style="height:100%;">
+                                        <div class="flex h-full">
                                             <div class="flex-1 p-8 pr-4" style="width: 90%;">
                                                 <h4 class="text-xl font-bold mb-3">HuaHuaQ: Toy Quantum Circuit Simulator</h4>
                                                 <p class="text-gray-600 mb-4">Understanding Quantum circuits is especially difficult when computer programs are often misunderstood- and HuaHuaQ was our toy model of quantum mechanics to understand their inner workings while allowing anyone to approach the difficult topic. It allows for a range of toolings, but maintains simplicity in its synatax to allow anyone to approach the library.</p>
@@ -230,7 +261,17 @@
                                                     <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Library Development</span>
                                                 </div>
                                             </div>
-                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
+                                            <!-- Sidebar for desktop, repositioned for mobile -->
+                                            <div class="flex flex-col bg-[#8b7355] 
+                                                        w-[10%] 
+                                                        justify-center 
+                                                        md:static md:w-[10%] 
+                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                        md:flex-col flex-row
+                                                        items-center md:items-stretch
+                                                        transition-all duration-300
+                                                        "
+                                                 >
                                                 <a href="https://github.com/AdiTiwa/huahuaq" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
                                                     <i class="fab fa-github text-lg"></i>
                                                 </a>
@@ -239,7 +280,7 @@
                                     </div>
 
                                     <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
-                                        <div class="flex" style="height:100%;">
+                                        <div class="flex h-full">
                                             <div class="flex-1 p-8 pr-4" style="width: 90%;">
                                                 <h4 class="text-xl font-bold mb-3">Post-Quantum Encryption Library</h4>
                                                 <p class="text-gray-600 mb-4">Due to advances in Quantum Algorithms, such as Peter Shor's factoring algorithm, many modern encryption algorithms are under scrutiny. While hardware lags behind algorithm development, the possibility of cyber-attacks prompts the development of post-quantum encryption methods. With Doug Strain at Google's Quantum AI, we developed an example library for popular methods like Crystals-KYBER, as well as toy algorithms to be broken by quantum computers.</p>
@@ -248,7 +289,17 @@
                                                     <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Computational Theory</span>
                                                 </div>
                                             </div>
-                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
+                                            <!-- Sidebar for desktop, repositioned for mobile -->
+                                            <div class="flex flex-col bg-[#8b7355] 
+                                                        w-[10%] 
+                                                        justify-center 
+                                                        md:static md:w-[10%] 
+                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                        md:flex-col flex-row
+                                                        items-center md:items-stretch
+                                                        transition-all duration-300
+                                                        "
+                                                 >
                                                 <a href="https://github.com/AdiTiwa/pq-encryption" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
                                                     <i class="fab fa-github text-lg"></i>
                                                 </a>
@@ -257,7 +308,7 @@
                                     </div>
 
                                     <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
-                                        <div class="flex" style="height:100%;">
+                                        <div class="flex h-full">
                                             <div class="flex-1 p-8 pr-4" style="width: 90%;">
                                                 <h4 class="text-xl font-bold mb-3">Splack- HTML Transpiler/Webserver</h4>
                                                 <p class="text-gray-600 mb-4">Simple programming language to hydrate webpages with simple markup-like syntax with state preservation. Mostly used to test JavaScript proficiency and understanding of webservers- one of the few preserved small experiments with developing programming languages I have!</p>
@@ -266,7 +317,17 @@
                                                     <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Web Development</span>
                                                 </div>
                                             </div>
-                                            <div class="flex flex-col bg-[#8b7355]" style="width: 10%;">
+                                            <!-- Sidebar for desktop, repositioned for mobile -->
+                                            <div class="flex flex-col bg-[#8b7355] 
+                                                        w-[10%] 
+                                                        justify-center 
+                                                        md:static md:w-[10%] 
+                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                        md:flex-col flex-row
+                                                        items-center md:items-stretch
+                                                        transition-all duration-300
+                                                        "
+                                                 >
                                                 <a href="https://github.com/AdiTiwa/splack/" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
                                                     <i class="fab fa-github text-lg"></i>
                                                 </a>
