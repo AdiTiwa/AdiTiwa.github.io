@@ -48,18 +48,18 @@
     <body class="bg-[#f5f5dc] text-[var(--text-color)]">
 
         <!-- Floating Sidebar Navigation -->
-        <nav class="bg-[var(--navbar-bg)] shadow fixed h-[30%] top-[5%] md:h-[30%] w-16 rounded-lg flex flex-col justify-center items-start space-y-6 left-4 md:top-[35%] transition-all duration-300 hover:w-48 group z-50">
+        <nav class="bg-[var(--navbar-bg)] shadow fixed h-[30%] top-[5%] w-16 rounded-lg flex flex-col justify-center items-start space-y-6 left-4 transition-all duration-300 hover:w-48 group z-50 md:hidden">
             <a href="#projects" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
-                <i class="fas fa-project-diagram text-xl"></i>
+                <i class="fas fa-flask text-xl"></i> <!-- Changed: Projects = flask (experimentation/research) -->
                 <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">Projects</span>
             </a>
-            <a href="#proficiencies" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
-                <i class="fas fa-tools text-xl"></i>
+            <a href="#proficiencies-section" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
+                <i class="fas fa-brain text-xl"></i> <!-- Changed: Proficiencies = brain (skills/knowledge) -->
                 <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">Proficiencies</span>
             </a>
-            <a href="#creative-works" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
-                <i class="fas fa-palette text-xl"></i>
-                <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">Creative Works</span>
+            <a href="#timeline-section" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
+                <i class="fas fa-stream text-xl"></i> <!-- Changed: History = stream (timeline/flow) -->
+                <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">History</span>
             </a>
         </nav>
 
@@ -89,314 +89,270 @@
         <div class="h-16 blur-transition"></div>
 
         <!-- Projects Section -->
-        <section id="projects" class="bg-[#f5f5dc] text-[var(--text-color)] py-20 w-full">
-            <div class="container mx-auto px-6">
-                <!-- Two Column Layout -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <!-- Current Projects Column -->
-                    <div class="relative border-2 border-[var(--navbar-bg)] rounded-lg p-6 pt-8">
-                        <!-- Fieldset-style label -->
-                        <div class="absolute -top-4 left-4 bg-[#f5f5dc] px-2 text-sm font-medium text-[var(--text-color)]">
-                            <h3 class="text-2xl font-semibold mb-6">Current Projects</h3> 
-                        </div>
-                        <div class="relative">
-                            <!-- Scroll Up Button -->
-                            <button id="current-scroll-up" class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
-                                <i class="fas fa-chevron-up text-[var(--text-color)]"></i>
-                            </button>
-                            
-                            <!-- Cards Container -->
-                            <div id="current-projects-container" class="h-[45rem] overflow-hidden relative">
-                                <div id="current-projects-carousel" class="space-y-4 transition-transform duration-500 ease-in-out">
-                                    <!-- Project Cards -->
-                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
-                                        <div class="flex h-full" style="height:100%;">
-                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
-                                                <h4 class="text-xl font-bold mb-3">Genetic Ansatz Construction</h4>
-                                                <p class="text-gray-600 mb-4">Using typical measures of quantum circuits, our paper constructs and trains a reinforcement learning-based heuristic function to optimize using a genetic algorithm. In optimization, the algorithm constructs optimal circuits to use as ansatz for Variational Quantum Eigensolvers.</p>
-                                                <div class="flex flex-wrap gap-2">
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Cirq</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col bg-[#8b7355] 
-                                                        w-[10%] 
-                                                        justify-center 
-                                                        md:static md:w-[10%] 
-                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
-                                                        md:flex-col flex-row
-                                                        items-center md:items-stretch
-                                                        transition-all duration-300
-                                                        "
-                                                 >
-                                                <a href="https://github.com/AdiTiwa/QCE25" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
-                                                    <i class="fab fa-github text-lg"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+        <section class="bg-[#f5f5dc] text-[var(--text-color)] py-12 w-full">
+            <div class="block md:flex mx-auto px-6">
 
-                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
-                                        <div class="flex h-full">
-                                            <div class="flex-1 p-8 pr-8" style="width: 90%;">
-                                                <h4 class="text-xl font-bold mb-3">Tree-of-Thought Agreement/Cognitive Dissonance in LLMs</h4>
-                                                <p class="text-gray-600 mb-4">In models that corroborate the outputs of Large Language Models, possible biases in system prompts can lead to inaccuracies in generated answers. In order to diagnose and address "cognitive dissonance", we explore by prompting language models to "debate" over a generated tree of thought, and measure convergence on agreed solutions.</p>
-                                                <div class="flex flex-wrap gap-2">
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Language Models</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
-                                        <div class="flex h-full">
-                                            <div class="flex-1 p-8" style="width: 90%;">
-                                                <h4 class="text-xl font-bold mb-3">Hidden Subgroup Problem for Solvable Symmetric Groups</h4>
-                                                <p class="text-gray-600 mb-4">The Hidden Subgroup Problem is the problem (with respect to reduction) that underlies most cryptographic algorithms. This project inspects this problem over a specific type of group, namely the simplest non-abelian (non-commutative) structures: Symmetric Groups. We specific inspect the collection of groups that have a sub-normal/derived sequence, called solvable groups, due to observed potential in other abelian groups.</p>
-                                                <div class="flex flex-wrap gap-2">
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Group Theory</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Computational Theory</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                <div class="container mx-auto px-6 order-1 md:order-2">
+                    <!-- Two Column Layout -->
+                    <div id="projects" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        
+                        <!-- Current Projects Column -->
+                        <div class="relative border-2 border-[var(--navbar-bg)] rounded-lg p-6 pt-8">
+                            <!-- Fieldset-style label -->
+                            <div class="absolute -top-4 left-4 bg-[#f5f5dc] px-2 text-sm font-medium text-[var(--text-color)]">
+                                <h3 class="text-2xl font-semibold mb-6">Current Projects</h3> 
                             </div>
-                            
-                            <!-- Scroll Down Button -->
-                            <button id="current-scroll-down" class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
-                                <i class="fas fa-chevron-down text-[var(--text-color)]"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Past Projects Column -->
-                    <div class="relative border-2 border-[var(--navbar-bg)] rounded-lg p-6 pt-8">
-                        <!-- Fieldset-style label -->
-                        <div class="absolute -top-4 left-4 bg-[#f5f5dc] px-2 text-sm font-medium text-[var(--text-color)]">
-                            <h3 class="text-2xl font-semibold mb-6">Past Projects</h3> 
-                        </div>
-                        <div class="relative">
-                            <!-- Scroll Up Button -->
-                            <button id="past-scroll-up" class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
-                                <i class="fas fa-chevron-up text-[var(--text-color)]"></i>
-                            </button>
-                            
-                            <!-- Cards Container -->
-                            <div id="past-projects-container" class="h-[38rem] overflow-hidden relative">
-                                <div id="past-projects-carousel" class="space-y-4 transition-transform duration-500 ease-in-out">
-                                    <!-- Project Cards -->
-                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
-                                        <div class="flex h-full">
-                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
-                                                <h4 class="text-xl font-bold mb-3">MINDSTORES</h4>
-                                                <p class="text-gray-600 mb-4">Language Model powered agents are useful for planning tasks in embodied agents, but struggle on sufficiently large and complex systems- these systems are often called open-worlds. We rely on intuition from psychology to store experiences in environments to stimulate success and estimations, and find significant improvements when applying to common open-worlds like Minecraft. Presented at workshops at ICLR 2025.</p>
-                                                <div class="flex flex-wrap gap-2">
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Language Models</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                            <div class="relative">
+                                <!-- Scroll Up Button -->
+                                <button id="current-scroll-up" class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
+                                    <i class="fas fa-chevron-up text-[var(--text-color)]"></i>
+                                </button>
+                                
+                                <!-- Cards Container -->
+                                <div id="current-projects-container" class="h-[45rem] overflow-hidden relative">
+                                    <div id="current-projects-carousel" class="space-y-4 transition-transform duration-500 ease-in-out">
+                                        <!-- Project Cards -->
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
+                                            <div class="flex h-full" style="height:100%;">
+                                                <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">Genetic Ansatz Construction</h4>
+                                                    <p class="text-gray-600 mb-4">Using typical measures of quantum circuits, our paper constructs and trains a reinforcement learning-based heuristic function to optimize using a genetic algorithm. In optimization, the algorithm constructs optimal circuits to use as ansatz for Variational Quantum Eigensolvers.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Cirq</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-col bg-[#8b7355] 
+                                                            w-[10%] 
+                                                            justify-center 
+                                                            md:static md:w-[10%] 
+                                                            absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                            md:flex-col flex-row
+                                                            items-center md:items-stretch
+                                                            transition-all duration-300
+                                                            "
+                                                    >
+                                                    <a href="https://github.com/AdiTiwa/QCE25" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                        <i class="fab fa-github text-lg"></i>
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <!-- Sidebar for desktop, repositioned for mobile -->
-                                            <div class="flex flex-col bg-[#8b7355] 
-                                                        w-[10%] 
-                                                        justify-center 
-                                                        md:static md:w-[10%] 
-                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
-                                                        md:flex-col flex-row
-                                                        items-center md:items-stretch
-                                                        transition-all duration-300
-                                                        "
-                                                 >
-                                                <a href="https://arxiv.org/abs/2501.19318" target="_blank"
-                                                   class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
-                                                    <i class="fas fa-file-alt text-lg"></i>
-                                                </a>
-                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
-                                        <div class="flex h-full">
-                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
-                                                <h4 class="text-xl font-bold mb-3">Ant Colony Optimization for LLM Tree of Thoughts</h4>
-                                                <p class="text-gray-600 mb-4">Modern reasoning language models utilize intermediate reasoning steps to generate accurate solutions to difficult problems, but often can make mistakes through their reasoning chain after many iterations. This paper presents a method that strengthens exploration pathways for miniature expert "ant" LLMs to come to a consensus on optimal reasoning pathways in difficult problems.</p>
-                                                <div class="flex flex-wrap gap-2">
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Language Models</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
+                                            <div class="flex h-full">
+                                                <div class="flex-1 p-8 pr-8" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">Tree-of-Thought Agreement/Cognitive Dissonance in LLMs</h4>
+                                                    <p class="text-gray-600 mb-4">In models that corroborate the outputs of Large Language Models, possible biases in system prompts can lead to inaccuracies in generated answers. In order to diagnose and address "cognitive dissonance", we explore by prompting language models to "debate" over a generated tree of thought, and measure convergence on agreed solutions.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Language Models</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <!-- Sidebar for desktop, repositioned for mobile -->
-                                            <div class="flex flex-col bg-[#8b7355] 
-                                                        w-[10%] 
-                                                        justify-center 
-                                                        md:static md:w-[10%] 
-                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
-                                                        md:flex-col flex-row
-                                                        items-center md:items-stretch
-                                                        transition-all duration-300
-                                                        "
-                                                 >
-                                                <a href="https://arxiv.org/abs/2501.19278" target="_blank"
-                                                   class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
-                                                    <i class="fas fa-file-alt text-lg"></i>
-                                                </a>
-                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
-                                        <div class="flex h-full">
-                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
-                                                <h4 class="text-xl font-bold mb-3">HuaHuaQ: Toy Quantum Circuit Simulator</h4>
-                                                <p class="text-gray-600 mb-4">Understanding Quantum circuits is especially difficult when computer programs are often misunderstood- and HuaHuaQ was our toy model of quantum mechanics to understand their inner workings while allowing anyone to approach the difficult topic. It allows for a range of toolings, but maintains simplicity in its synatax to allow anyone to approach the library.</p>
-                                                <div class="flex flex-wrap gap-2">
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Library Development</span>
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
+                                            <div class="flex h-full">
+                                                <div class="flex-1 p-8" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">Hidden Subgroup Problem for Solvable Symmetric Groups</h4>
+                                                    <p class="text-gray-600 mb-4">The Hidden Subgroup Problem is the problem (with respect to reduction) that underlies most cryptographic algorithms. This project inspects this problem over a specific type of group, namely the simplest non-abelian (non-commutative) structures: Symmetric Groups. We specific inspect the collection of groups that have a sub-normal/derived sequence, called solvable groups, due to observed potential in other abelian groups.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Group Theory</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Computational Theory</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <!-- Sidebar for desktop, repositioned for mobile -->
-                                            <div class="flex flex-col bg-[#8b7355] 
-                                                        w-[10%] 
-                                                        justify-center 
-                                                        md:static md:w-[10%] 
-                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
-                                                        md:flex-col flex-row
-                                                        items-center md:items-stretch
-                                                        transition-all duration-300
-                                                        "
-                                                 >
-                                                <a href="https://github.com/AdiTiwa/huahuaq" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
-                                                    <i class="fab fa-github text-lg"></i>
-                                                </a>
-                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
-                                        <div class="flex h-full">
-                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
-                                                <h4 class="text-xl font-bold mb-3">Post-Quantum Encryption Library</h4>
-                                                <p class="text-gray-600 mb-4">Due to advances in Quantum Algorithms, such as Peter Shor's factoring algorithm, many modern encryption algorithms are under scrutiny. While hardware lags behind algorithm development, the possibility of cyber-attacks prompts the development of post-quantum encryption methods. With Doug Strain at Google's Quantum AI, we developed an example library for popular methods like Crystals-KYBER, as well as toy algorithms to be broken by quantum computers.</p>
-                                                <div class="flex flex-wrap gap-2">
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Rust</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Computational Theory</span>
-                                                </div>
-                                            </div>
-                                            <!-- Sidebar for desktop, repositioned for mobile -->
-                                            <div class="flex flex-col bg-[#8b7355] 
-                                                        w-[10%] 
-                                                        justify-center 
-                                                        md:static md:w-[10%] 
-                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
-                                                        md:flex-col flex-row
-                                                        items-center md:items-stretch
-                                                        transition-all duration-300
-                                                        "
-                                                 >
-                                                <a href="https://github.com/AdiTiwa/pq-encryption" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
-                                                    <i class="fab fa-github text-lg"></i>
-                                                </a>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
-                                        <div class="flex h-full">
-                                            <div class="flex-1 p-8 pr-4" style="width: 90%;">
-                                                <h4 class="text-xl font-bold mb-3">Splack- HTML Transpiler/Webserver</h4>
-                                                <p class="text-gray-600 mb-4">Simple programming language to hydrate webpages with simple markup-like syntax with state preservation. Mostly used to test JavaScript proficiency and understanding of webservers- one of the few preserved small experiments with developing programming languages I have!</p>
-                                                <div class="flex flex-wrap gap-2">
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">JavaScript</span>
-                                                    <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Web Development</span>
-                                                </div>
-                                            </div>
-                                            <!-- Sidebar for desktop, repositioned for mobile -->
-                                            <div class="flex flex-col bg-[#8b7355] 
-                                                        w-[10%] 
-                                                        justify-center 
-                                                        md:static md:w-[10%] 
-                                                        absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
-                                                        md:flex-col flex-row
-                                                        items-center md:items-stretch
-                                                        transition-all duration-300
-                                                        "
-                                                 >
-                                                <a href="https://github.com/AdiTiwa/splack/" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
-                                                    <i class="fab fa-github text-lg"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
+                                
+                                <!-- Scroll Down Button -->
+                                <button id="current-scroll-down" class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
+                                    <i class="fas fa-chevron-down text-[var(--text-color)]"></i>
+                                </button>
                             </div>
-                            
-                            <!-- Scroll Down Button -->
-                            <button id="past-scroll-down" class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
-                                <i class="fas fa-chevron-down text-[var(--text-color)]"></i>
-                            </button>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        
+                        <!-- Past Projects Column -->
+                        <div class="relative border-2 border-[var(--navbar-bg)] rounded-lg p-6 pt-8">
+                            <!-- Fieldset-style label -->
+                            <div class="absolute -top-4 left-4 bg-[#f5f5dc] px-2 text-sm font-medium text-[var(--text-color)]">
+                                <h3 class="text-2xl font-semibold mb-6">Past Projects</h3> 
+                            </div>
+                            <div class="relative">
+                                <!-- Scroll Up Button -->
+                                <button id="past-scroll-up" class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
+                                    <i class="fas fa-chevron-up text-[var(--text-color)]"></i>
+                                </button>
+                                
+                                <!-- Cards Container -->
+                                <div id="past-projects-container" class="h-[38rem] overflow-hidden relative">
+                                    <div id="past-projects-carousel" class="space-y-4 transition-transform duration-500 ease-in-out">
+                                        <!-- Project Cards -->
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                            <div class="flex h-full">
+                                                <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">MINDSTORES</h4>
+                                                    <p class="text-gray-600 mb-4">Language Model powered agents are useful for planning tasks in embodied agents, but struggle on sufficiently large and complex systems- these systems are often called open-worlds. We rely on intuition from psychology to store experiences in environments to stimulate success and estimations, and find significant improvements when applying to common open-worlds like Minecraft. Presented at workshops at ICLR 2025.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Language Models</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                                    </div>
+                                                </div>
+                                                <!-- Sidebar for desktop, repositioned for mobile -->
+                                                <div class="flex flex-col bg-[#8b7355] 
+                                                            w-[10%] 
+                                                            justify-center 
+                                                            md:static md:w-[10%] 
+                                                            absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                            md:flex-col flex-row
+                                                            items-center md:items-stretch
+                                                            transition-all duration-300
+                                                            "
+                                                    >
+                                                    <a href="https://arxiv.org/abs/2501.19318" target="_blank"
+                                                    class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                        <i class="fas fa-file-alt text-lg"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
 
-        <!-- Proficiencies & Creative Works Section (Side-by-side) -->
-        <section class="bg-[#eae0c8] text-[var(--text-color)] py-20 w-full">
-            <div class="container mx-auto px-6">
-                <!-- Make the grid a flex container for equal height columns -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:flex md:flex-row">
-                    <!-- Timeline Section -->
-                    <div class="md:col-span-1 order-2 md:order-1 h-full flex flex-col" id="timeline-section">
-                        <h2 class="text-3xl font-bold mb-6">Past Experiences</h2>
-                        <!-- Vertical Timeline -->
-                        <div class="relative flex flex-col items-center">
-                            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#8b7355] via-[#bfa58a] to-[#d9c2a3] z-0"></div>
-                            <div class="flex flex-col items-center w-full z-10">
-                                <!-- Timeline Card 1 -->
-                                <div class="flex items-center w-full mb-8">
-                                    <div class="flex-1"></div>
-                                    <div class="flex flex-col items-center">
-                                        <div class="w-4 h-4 bg-[#8b7355] rounded-full mb-2"></div>
-                                        <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#8b7355] w-80">
-                                            <h4 class="font-semibold text-lg mb-1">Mentorship</h4>
-                                            <span class="text-sm text-gray-500">Google Quantum AI Labs</span>
-                                            <p class="text-sm mt-2 text-gray-600">Worked under Doug Strain to explore quantum computing and new quantum initiatives.</p>
-                                            <span class="block mt-2 text-xs text-[#8b7355]">Summer 2024 - Spring 2025</span>
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                            <div class="flex h-full">
+                                                <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">Ant Colony Optimization for LLM Tree of Thoughts</h4>
+                                                    <p class="text-gray-600 mb-4">Modern reasoning language models utilize intermediate reasoning steps to generate accurate solutions to difficult problems, but often can make mistakes through their reasoning chain after many iterations. This paper presents a method that strengthens exploration pathways for miniature expert "ant" LLMs to come to a consensus on optimal reasoning pathways in difficult problems.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Language Models</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                                    </div>
+                                                </div>
+                                                <!-- Sidebar for desktop, repositioned for mobile -->
+                                                <div class="flex flex-col bg-[#8b7355] 
+                                                            w-[10%] 
+                                                            justify-center 
+                                                            md:static md:w-[10%] 
+                                                            absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                            md:flex-col flex-row
+                                                            items-center md:items-stretch
+                                                            transition-all duration-300
+                                                            "
+                                                    >
+                                                    <a href="https://arxiv.org/abs/2501.19278" target="_blank"
+                                                    class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                        <i class="fas fa-file-alt text-lg"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="flex-1"></div>
-                                </div>
-                                <!-- Timeline Card 2 -->
-                                <div class="flex items-center w-full mb-8">
-                                    <div class="flex-1"></div>
-                                    <div class="flex flex-col items-center">
-                                        <div class="w-4 h-4 bg-[#bfa58a] rounded-full mb-2"></div>
-                                        <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#bfa58a] w-80">
-                                            <h4 class="font-semibold text-lg mb-1">Research Assistant</h4>
-                                            <span class="text-sm text-gray-500">a137.ai</span>
-                                            <p class="text-sm mt-2 text-gray-600">Developed papers for submission to ICML, ICLR, and TMLR.</p>
-                                            <span class="block mt-2 text-xs text-[#bfa58a]">Winter 2024</span>
+
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                            <div class="flex h-full">
+                                                <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">HuaHuaQ: Toy Quantum Circuit Simulator</h4>
+                                                    <p class="text-gray-600 mb-4">Understanding Quantum circuits is especially difficult when computer programs are often misunderstood- and HuaHuaQ was our toy model of quantum mechanics to understand their inner workings while allowing anyone to approach the difficult topic. It allows for a range of toolings, but maintains simplicity in its synatax to allow anyone to approach the library.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Library Development</span>
+                                                    </div>
+                                                </div>
+                                                <!-- Sidebar for desktop, repositioned for mobile -->
+                                                <div class="flex flex-col bg-[#8b7355] 
+                                                            w-[10%] 
+                                                            justify-center 
+                                                            md:static md:w-[10%] 
+                                                            absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                            md:flex-col flex-row
+                                                            items-center md:items-stretch
+                                                            transition-all duration-300
+                                                            "
+                                                    >
+                                                    <a href="https://github.com/AdiTiwa/huahuaq" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                        <i class="fab fa-github text-lg"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
+
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                            <div class="flex h-full">
+                                                <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">Post-Quantum Encryption Library</h4>
+                                                    <p class="text-gray-600 mb-4">Due to advances in Quantum Algorithms, such as Peter Shor's factoring algorithm, many modern encryption algorithms are under scrutiny. While hardware lags behind algorithm development, the possibility of cyber-attacks prompts the development of post-quantum encryption methods. With Doug Strain at Google's Quantum AI, we developed an example library for popular methods like Crystals-KYBER, as well as toy algorithms to be broken by quantum computers.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Rust</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Computational Theory</span>
+                                                    </div>
+                                                </div>
+                                                <!-- Sidebar for desktop, repositioned for mobile -->
+                                                <div class="flex flex-col bg-[#8b7355] 
+                                                            w-[10%] 
+                                                            justify-center 
+                                                            md:static md:w-[10%] 
+                                                            absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                            md:flex-col flex-row
+                                                            items-center md:items-stretch
+                                                            transition-all duration-300
+                                                            "
+                                                    >
+                                                    <a href="https://github.com/AdiTiwa/pq-encryption" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                        <i class="fab fa-github text-lg"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                            <div class="flex h-full">
+                                                <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">Splack- HTML Transpiler/Webserver</h4>
+                                                    <p class="text-gray-600 mb-4">Simple programming language to hydrate webpages with simple markup-like syntax with state preservation. Mostly used to test JavaScript proficiency and understanding of webservers- one of the few preserved small experiments with developing programming languages I have!</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">JavaScript</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Web Development</span>
+                                                    </div>
+                                                </div>
+                                                <!-- Sidebar for desktop, repositioned for mobile -->
+                                                <div class="flex flex-col bg-[#8b7355] 
+                                                            w-[10%] 
+                                                            justify-center 
+                                                            md:static md:w-[10%] 
+                                                            absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                            md:flex-col flex-row
+                                                            items-center md:items-stretch
+                                                            transition-all duration-300
+                                                            "
+                                                    >
+                                                    <a href="https://github.com/AdiTiwa/splack/" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                        <i class="fab fa-github text-lg"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <div class="flex-1"></div>
                                 </div>
+                                
+                                <!-- Scroll Down Button -->
+                                <button id="past-scroll-down" class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
+                                    <i class="fas fa-chevron-down text-[var(--text-color)]"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                     <!-- Proficiencies Section -->
-                    <div class="md:col-span-2 order-1 md:order-2 h-full flex flex-col" id="proficiencies-section">
+                    <div class="md:col-span-2 order-1 md:order-2 flex flex-col pt-4" id="proficiencies-section">
                         <h2 class="text-3xl font-bold mb-6">Proficiencies</h2>
-                        <div class="grid grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <!-- Programming Languages Block -->
-                            <div class="bg-white col-span-2 rounded-lg shadow-md p-6 border-l-4 border-[#8b7355]">
+                            <div class="bg-white md:row-span-2 rounded-lg shadow-md p-6 border-l-4 border-[#8b7355]">
                                 <h3 class="text-xl font-semibold mb-3 flex items-center">
                                     <i class="fas fa-code mr-2 text-[#8b7355]"></i> Programming Languages (Favorites!)
                                 </h3>
@@ -447,8 +403,110 @@
                                     <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Data Visualization</span>
                                 </div>
                             </div>
+                            <!-- Awards Block -->
+                            <div class="bg-white md:col-span-2 rounded-lg shadow-md p-6 border-l-4 border-[#d9c2a3]">
+                                <h3 class="text-xl font-semibold mb-3 flex items-center">
+                                    <i class="fas fa-trophy mr-2 text-[#d9c2a3]"></i> Awards
+                                </h3>
+                                Chronologically:
+                                <ul class="list-disc list-inside mt-2">
+                                    <li>2023: Harvard Debate Octafinals (Top 16)</li>
+                                    <li>2023: Outstanding (2nd) Delegate at Chicago International MUN Conference</li>
+                                    <li>2025: Presented MINDSTORES at ICLR</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Timeline Section -->
+                <div class="order-2 flex-1 md:order-1 py-8 md:p-0"">
+                <div class="md:col-span-1 order-2 md:order-1 h-full flex flex-col" id="timeline-section">
+                    <!-- Vertical Timeline -->
+                    <div class="relative flex flex-col items-center">
+                        <div class="absolute h-full w-1 bg-gradient-to-b from-[#8b7355] via-[#bfa58a] to-[#d9c2a3] z-0"></div>
+                        <div class="flex flex-col w-full z-10">
+                            <!-- Timeline Card 1 -->
+                            <div class="items-center w-full mb-4">
+                                <!-- Timeline dot (left of timeline) -->
+                                <div class="flex-1"></div>
+                                <!-- Timeline line and dot (center) -->
+                                <div class="flex flex-col items-center">
+                                    <div class="w-4 h-4 bg-[#8b7355] rounded-full mb-2"></div>
+                                </div>
+                                <!-- Card (right of timeline) -->
+                                <div class="flex-1 flex justify-start">
+                                    <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#8b7355] w-80 ml-6">
+                                        <h4 class="font-semibold text-lg mb-1">Club President</h4>
+                                        <span class="text-sm text-gray-500">IMSA Code Society</span>
+                                        <p class="text-sm mt-2 text-gray-600">Hosted events, competitions, and educational workshops for IMSA's premier coding club.</p>
+                                        <span class="block mt-2 text-xs text-[#8b7355]">Spring 2024 - Present</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Timeline Card 2 -->
+                            <div class="items-center w-full mb-4">
+                                <div class="flex-1"></div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-4 h-4 bg-[#8b7355] rounded-full mb-2"></div>
+                                </div>
+                                <div class="flex-1 flex justify-start">
+                                    <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#8b7355] w-80 ml-6">
+                                        <h4 class="font-semibold text-lg mb-1">Mentorship</h4>
+                                        <span class="text-sm text-gray-500">Google Quantum AI Labs</span>
+                                        <p class="text-sm mt-2 text-gray-600">Worked under Doug Strain to explore quantum computing and new quantum initiatives.</p>
+                                        <span class="block mt-2 text-xs text-[#8b7355]">Summer 2024 - Spring 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Timeline Card 3 -->
+                            <div class="items-center w-full mb-4">
+                                <div class="flex-1"></div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-4 h-4 bg-[#bfa58a] rounded-full mb-2"></div>
+                                </div>
+                                <div class="flex-1 flex justify-start">
+                                    <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#bfa58a] w-80 ml-6">
+                                        <h4 class="font-semibold text-lg mb-1">Research Assistant</h4>
+                                        <span class="text-sm text-gray-500">a37.ai</span>
+                                        <p class="text-sm mt-2 text-gray-600">Developed papers for submission to ICML, ICLR, and TMLR.</p>
+                                        <span class="block mt-2 text-xs text-[#bfa58a]">Winter 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Timeline Card 4 -->
+                            <div class="items-center w-full mb-4">
+                                <div class="flex-1"></div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-4 h-4 bg-[#d9c2a3] rounded-full mb-2"></div>
+                                </div>
+                                <div class="flex-1 flex justify-start">
+                                    <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#d9c2a3] w-80 ml-6">
+                                        <h4 class="font-semibold text-lg mb-1">Editor-in-Chief</h4>
+                                        <span class="text-sm text-gray-500">IMSA Zeitgeist</span>
+                                        <p class="text-sm mt-2 text-gray-600">Founded and run student literary magazine at IMSA.</p>
+                                        <span class="block mt-2 text-xs text-[#d9c2a3]">Winter 2024 - Present</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Timeline Card 5 -->
+                            <div class="items-center w-full mb-4">
+                                <div class="flex-1"></div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-4 h-4 bg-[#d9c2a3] rounded-full mb-2"></div>
+                                </div>
+                                <div class="flex-1 flex justify-start">
+                                    <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#d9c2a3] w-80 ml-6">
+                                        <h4 class="font-semibold text-lg mb-1">Student Experiential Learning Officer</h4>
+                                        <span class="text-sm text-gray-500">Experiential Learning Department @ IMSA</span>
+                                        <p class="text-sm mt-2 text-gray-600">Founded and run student projects as part of experential learning reform at IMSA.</p>
+                                        <span class="block mt-2 text-xs text-[#d9c2a3]">Spring 2025 - Present</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </section>
