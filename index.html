@@ -693,15 +693,22 @@
             });
         </script>
 
-        <!-- Equalize Carousel Card Heights Script (2 cards visible at a time) -->
+        <!-- Equalize Carousel Card Heights Script (reactive: 2 cards on wide screens, 1 on narrower) -->
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Number of carousel cards visible at once
-            const VISIBLE_COUNT = 2;
             const GAP = 16; // matches space-y-4
+
+            // Cards visible at once: 2 on a full-width screen, 1 below ~2/3 of
+            // the display width so the right column balances the timeline height
+            function getVisibleCount() {
+                const display = (window.screen && (window.screen.availWidth || window.screen.width)) || 1920;
+                const threshold = Math.round(display * 2 / 3);
+                return window.innerWidth >= threshold ? 2 : 1;
+            }
 
             // Utility to set all cards in both carousels to the same height (the tallest)
             function equalizeCarouselCardHeights(carouselIds, containerIds) {
+                const visible = getVisibleCount();
                 let maxHeight = 0;
                 let allCards = [];
                 carouselIds.forEach(id => {
@@ -719,17 +726,17 @@
                 allCards.forEach(card => {
                     card.style.height = maxHeight + 'px';
                 });
-                // Set containers to fit VISIBLE_COUNT cards (plus gaps between them)
+                // Set containers to fit `visible` cards (plus gaps between them)
                 containerIds.forEach(id => {
                     const container = document.getElementById(id);
                     if (container) {
-                        container.style.height = (maxHeight * VISIBLE_COUNT + GAP * (VISIBLE_COUNT - 1)) + 'px';
+                        container.style.height = (maxHeight * visible + GAP * (visible - 1)) + 'px';
                     }
                 });
                 return maxHeight;
             }
 
-            // Carousel functionality: VISIBLE_COUNT cards at a time, one-card scroll steps
+            // Carousel functionality: getVisibleCount() cards at a time, one-card scroll steps
             function setupCarousel(carouselId, upButtonId, downButtonId, containerId) {
                 const carousel = document.getElementById(carouselId);
                 const upButton = document.getElementById(upButtonId);
@@ -748,13 +755,15 @@
                 let currentIndex = 0;
 
                 function getMaxIndex() {
-                    return Math.max(0, cards.length - VISIBLE_COUNT);
+                    return Math.max(0, cards.length - getVisibleCount());
                 }
 
                 function updateCarousel() {
                     // Re-equalize heights and recalculate cardHeight
                     cardHeight = cards[0].offsetHeight + GAP;
-                    if (container) container.style.height = (VISIBLE_COUNT * cardHeight - GAP) + 'px';
+                    if (container) container.style.height = (getVisibleCount() * cardHeight - GAP) + 'px';
+                    // Keep the position valid if the visible count changed on resize
+                    if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex();
                     const translateY = -currentIndex * cardHeight;
                     carousel.style.transform = `translateY(${translateY}px)`;
 
