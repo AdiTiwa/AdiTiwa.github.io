@@ -1,8 +1,9 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Aditya Tiwari — student of computer science, physics, sociology, and philosophy. Research in quantum computing, LLM reasoning, and numerical PDE methods.">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <script src="https://cdn.tailwindcss.com"></script>
         <title>Aditya Tiwari - Resume</title>
@@ -17,7 +18,7 @@
 
             /* Custom Tailwind configuration for serif fonts */
             @import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
-            
+
             body {
                 font-family: "Gabarito", sans-serif;
                 font-optical-sizing: auto;
@@ -38,9 +39,9 @@
             .blur-transition {
                 backdrop-filter: blur(8px);
                 -webkit-backdrop-filter: blur(8px);
-                background: linear-gradient(to bottom, 
-                    rgba(191, 165, 138, 0.8) 0%, 
-                    rgba(245, 245, 220, 0.9) 50%, 
+                background: linear-gradient(to bottom,
+                    rgba(191, 165, 138, 0.8) 0%,
+                    rgba(245, 245, 220, 0.9) 50%,
                     rgba(245, 245, 220, 1) 100%);
             }
         </style>
@@ -48,17 +49,21 @@
     <body class="bg-[#f5f5dc] text-[var(--text-color)]">
 
         <!-- Floating Sidebar Navigation -->
-        <nav class="bg-[var(--navbar-bg)] shadow fixed h-[30%] top-[5%] w-16 rounded-lg flex flex-col justify-center items-start space-y-6 left-4 transition-all duration-300 hover:w-48 group z-50 md:hidden">
+        <nav class="bg-[var(--navbar-bg)] shadow fixed h-[36%] top-[5%] w-16 rounded-lg flex flex-col justify-center items-start space-y-6 left-4 transition-all duration-300 hover:w-48 group z-50 md:hidden">
+            <a href="#education-section" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
+                <i class="fas fa-university text-xl"></i> <!-- Education = university -->
+                <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">Education</span>
+            </a>
             <a href="#projects" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
-                <i class="fas fa-flask text-xl"></i> <!-- Changed: Projects = flask (experimentation/research) -->
+                <i class="fas fa-flask text-xl"></i> <!-- Projects = flask (experimentation/research) -->
                 <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">Projects</span>
             </a>
-            <a href="#proficiencies-section" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
-                <i class="fas fa-brain text-xl"></i> <!-- Changed: Proficiencies = brain (skills/knowledge) -->
-                <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">Proficiencies</span>
+            <a href="#awards-section" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
+                <i class="fas fa-award text-xl"></i> <!-- Awards = award -->
+                <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">Awards</span>
             </a>
             <a href="#timeline-section" class="flex items-center space-x-4 pl-4 group-hover:text-[#6b4f3f] flex-nowrap">
-                <i class="fas fa-stream text-xl"></i> <!-- Changed: History = stream (timeline/flow) -->
+                <i class="fas fa-stream text-xl"></i> <!-- History = stream (timeline/flow) -->
                 <span class="hidden group-hover:inline-block transition-opacity duration-300 whitespace-nowrap">History</span>
             </a>
         </nav>
@@ -70,11 +75,15 @@
         <section id="hero" class="relative bg-gradient-to-r from-[var(--hero-bg-start)] to-[var(--hero-bg-end)] text-[var(--text-color)] text-center h-[75vh] flex flex-col justify-end items-center pb-10 w-full overflow-hidden">
             <!-- Three.js Background Canvas - bounded to hero -->
             <canvas id="bg-canvas" class="absolute top-0 left-0 w-full h-full pointer-events-none"></canvas>
-            
+
             <h1 class="relative z-10 text-5xl sm:text-6xl font-extrabold">hi! i'm aditya tiwari</h1>
+            <p class="relative z-10 mt-4 text-lg sm:text-xl text-[#6b5940]">cs &middot; physics &middot; sociology &middot; philosophy &mdash; imsa '26 &rarr; duke '30</p>
             <div class="relative z-10 mt-6 flex justify-center gap-4">
                 <a href="https://github.com/aditiwa" target="_blank" aria-label="GitHub" class="bg-[#8b7355] hover:bg-[#6b5940] text-white rounded-full p-3 shadow transition-colors duration-200 flex items-center">
                     <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="mailto:aditya.tiwari@duke.edu" aria-label="Email" class="bg-[#8b7355] hover:bg-[#6b5940] text-white rounded-full p-3 shadow transition-colors duration-200 flex items-center">
+                    <i class="fas fa-envelope text-2xl"></i>
                 </a>
                 <a href="https://scholar.google.com/citations?user=zNSjHNQAAAAJ" target="_blank" aria-label="Google Scholar" class="bg-[#bfa58a] hover:bg-[#a08a6a] text-white rounded-full p-3 shadow transition-colors duration-200 flex items-center">
                     <i class="fas fa-graduation-cap text-2xl"></i>
@@ -93,47 +102,64 @@
             <div class="block md:flex mx-auto px-6">
 
                 <div class="container mx-auto px-6 order-1 md:order-2">
+                    <!-- Education Section (right of the timeline, above the carousel) -->
+                    <div id="education-section" class="pt-4">
+                        <h2 class="text-3xl font-bold mb-6">Education</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                            <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#bfa58a]">
+                                <h3 class="text-xl font-semibold mb-1">Duke University</h3>
+                                <p class="text-sm text-gray-500 mb-3">Durham, NC &middot; Incoming &middot; Class of 2030</p>
+                                <p class="text-gray-600">B.S. in Computer Science, with minors in Philosophy and Sociology.</p>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#d9c2a3]">
+                                <h3 class="text-xl font-semibold mb-1">Illinois Math and Science Academy (IMSA)</h3>
+                                <p class="text-sm text-gray-500 mb-3">Aurora, IL &middot; Class of 2026 &middot; GPA 3.92</p>
+                                <p class="text-gray-600">Highlight courses: Modern Physics, Calc-based Mechanics & E&M, Abstract Algebra, Number Theory, Real Analysis, Topology.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Two Column Layout -->
                     <div id="projects" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        
+
                         <!-- Current Projects Column -->
                         <div class="relative border-2 border-[var(--navbar-bg)] rounded-lg p-6 pt-8">
                             <!-- Fieldset-style label -->
                             <div class="absolute -top-4 left-4 bg-[#f5f5dc] px-2 text-sm font-medium text-[var(--text-color)]">
-                                <h3 class="text-2xl font-semibold mb-6">Current Projects</h3> 
+                                <h3 class="text-2xl font-semibold mb-6">Current Projects</h3>
                             </div>
                             <div class="relative">
                                 <!-- Scroll Up Button -->
                                 <button id="current-scroll-up" class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
                                     <i class="fas fa-chevron-up text-[var(--text-color)]"></i>
                                 </button>
-                                
+
                                 <!-- Cards Container -->
-                                <div id="current-projects-container" class="h-[45rem] overflow-hidden relative">
+                                <div id="current-projects-container" class="h-[50rem] overflow-hidden relative">
                                     <div id="current-projects-carousel" class="space-y-4 transition-transform duration-500 ease-in-out">
                                         <!-- Project Cards -->
                                         <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
                                             <div class="flex h-full" style="height:100%;">
                                                 <div class="flex-1 p-8 pr-4" style="width: 90%;">
-                                                    <h4 class="text-xl font-bold mb-3">Genetic Ansatz Construction</h4>
-                                                    <p class="text-gray-600 mb-4">Using typical measures of quantum circuits, our paper constructs and trains a reinforcement learning-based heuristic function to optimize using a genetic algorithm. In optimization, the algorithm constructs optimal circuits to use as ansatz for Variational Quantum Eigensolvers.</p>
+                                                    <h4 class="text-xl font-bold mb-3">Optimal Time-Step, Non-Iterative Defect Correction (OTS-NIDC)</h4>
+                                                    <p class="text-gray-600 mb-4">With Dr. Kevin Chu at Velexi Research Scholars, extending numerical methods for high-order-accuracy PDE solving from scalar problems to coupled and stochastic settings. Time-step subcycling preserves high-order accuracy at low cost, and a moment-hierarchy formulation carries the approach over to stochastic PDEs.</p>
                                                     <div class="flex flex-wrap gap-2">
                                                         <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
-                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Cirq</span>
-                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Numerical Methods</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Stochastic PDEs</span>
                                                     </div>
                                                 </div>
-                                                <div class="flex flex-col bg-[#8b7355] 
-                                                            w-[10%] 
-                                                            justify-center 
-                                                            md:static md:w-[10%] 
+                                                <div class="flex flex-col bg-[#8b7355]
+                                                            w-[10%]
+                                                            justify-center
+                                                            md:static md:w-[10%]
                                                             absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
                                                             md:flex-col flex-row
                                                             items-center md:items-stretch
                                                             transition-all duration-300
                                                             "
                                                     >
-                                                    <a href="https://github.com/AdiTiwa/QCE25" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                    <a href="https://github.com/AdiTiwa/OTS-NIDC" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
                                                         <i class="fab fa-github text-lg"></i>
                                                     </a>
                                                 </div>
@@ -142,7 +168,35 @@
 
                                         <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
                                             <div class="flex h-full">
-                                                <div class="flex-1 p-8 pr-8" style="width: 90%;">
+                                                <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">Digital&ndash;Analog&ndash;Quantum Hybrid General-Purpose Computer</h4>
+                                                    <p class="text-gray-600 mb-4">A Nand2Tetris-style general-purpose computer extended with an Analog Processing Unit sitting alongside its CPU &mdash; plus analog control circuits that drive a photonic qubit with shaped pulses. Part von Neumann machine, part quantum control rig.</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">C++</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Digital Logic</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Photonics</span>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-col bg-[#8b7355]
+                                                            w-[10%]
+                                                            justify-center
+                                                            md:static md:w-[10%]
+                                                            absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                            md:flex-col flex-row
+                                                            items-center md:items-stretch
+                                                            transition-all duration-300
+                                                            "
+                                                    >
+                                                    <a href="https://github.com/AdiTiwa/DigitalAnalogComputer" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                        <i class="fab fa-github text-lg"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[20rem] relative">
+                                            <div class="flex h-full">
+                                                <div class="flex-1 p-8 pr-4" style="width: 90%;">
                                                     <h4 class="text-xl font-bold mb-3">Tree-of-Thought Agreement/Cognitive Dissonance in LLMs</h4>
                                                     <p class="text-gray-600 mb-4">In models that corroborate the outputs of Large Language Models, possible biases in system prompts can lead to inaccuracies in generated answers. In order to diagnose and address "cognitive dissonance", we explore by prompting language models to "debate" over a generated tree of thought, and measure convergence on agreed solutions.</p>
                                                     <div class="flex flex-wrap gap-2">
@@ -169,30 +223,44 @@
 
                                     </div>
                                 </div>
-                                
+
                                 <!-- Scroll Down Button -->
                                 <button id="current-scroll-down" class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
                                     <i class="fas fa-chevron-down text-[var(--text-color)]"></i>
                                 </button>
                             </div>
                         </div>
-                        
+
                         <!-- Past Projects Column -->
                         <div class="relative border-2 border-[var(--navbar-bg)] rounded-lg p-6 pt-8">
                             <!-- Fieldset-style label -->
                             <div class="absolute -top-4 left-4 bg-[#f5f5dc] px-2 text-sm font-medium text-[var(--text-color)]">
-                                <h3 class="text-2xl font-semibold mb-6">Past Projects</h3> 
+                                <h3 class="text-2xl font-semibold mb-6">Past Projects</h3>
                             </div>
                             <div class="relative">
                                 <!-- Scroll Up Button -->
                                 <button id="past-scroll-up" class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
                                     <i class="fas fa-chevron-up text-[var(--text-color)]"></i>
                                 </button>
-                                
+
                                 <!-- Cards Container -->
-                                <div id="past-projects-container" class="h-[38rem] overflow-hidden relative">
+                                <div id="past-projects-container" class="h-[50rem] overflow-hidden relative">
                                     <div id="past-projects-carousel" class="space-y-4 transition-transform duration-500 ease-in-out">
                                         <!-- Project Cards -->
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                            <div class="flex h-full">
+                                                <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">Decentralized Heuristic-Based Mesh Network Routing</h4>
+                                                    <p class="text-gray-600 mb-4">A security-maximizing approach to decentralized multi-path routing: heuristic-driven route selection that trades small latency costs for resilience against compromised or unreliable nodes. Patent pending (USPTO App #63/908,664, Oct 2025).</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Networking</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Algorithms</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Security</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
                                             <div class="flex h-full">
                                                 <div class="flex-1 p-8 pr-4" style="width: 90%;">
@@ -205,10 +273,10 @@
                                                     </div>
                                                 </div>
                                                 <!-- Sidebar for desktop, repositioned for mobile -->
-                                                <div class="flex flex-col bg-[#8b7355] 
-                                                            w-[10%] 
-                                                            justify-center 
-                                                            md:static md:w-[10%] 
+                                                <div class="flex flex-col bg-[#8b7355]
+                                                            w-[10%]
+                                                            justify-center
+                                                            md:static md:w-[10%]
                                                             absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
                                                             md:flex-col flex-row
                                                             items-center md:items-stretch
@@ -235,10 +303,10 @@
                                                     </div>
                                                 </div>
                                                 <!-- Sidebar for desktop, repositioned for mobile -->
-                                                <div class="flex flex-col bg-[#8b7355] 
-                                                            w-[10%] 
-                                                            justify-center 
-                                                            md:static md:w-[10%] 
+                                                <div class="flex flex-col bg-[#8b7355]
+                                                            w-[10%]
+                                                            justify-center
+                                                            md:static md:w-[10%]
                                                             absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
                                                             md:flex-col flex-row
                                                             items-center md:items-stretch
@@ -256,6 +324,35 @@
                                         <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
                                             <div class="flex h-full">
                                                 <div class="flex-1 p-8 pr-4" style="width: 90%;">
+                                                    <h4 class="text-xl font-bold mb-3">Heuristic-Guided Genetic Ansatz for VQEs</h4>
+                                                    <p class="text-gray-600 mb-4">Using typical measures of quantum circuits, our paper constructs and trains a reinforcement learning-based heuristic function to optimize using a genetic algorithm &mdash; generalizing problem-fit to Bell-state distributions for optimal VQE ansatze. Presented as a poster at Fermilab's "Exploring Quantum Universe".</p>
+                                                    <div class="flex flex-wrap gap-2">
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Python</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Cirq</span>
+                                                        <span class="bg-[var(--hero-bg-start)] px-2 py-1 rounded text-sm">Machine Learning</span>
+                                                    </div>
+                                                </div>
+                                                <!-- Sidebar for desktop, repositioned for mobile -->
+                                                <div class="flex flex-col bg-[#8b7355]
+                                                            w-[10%]
+                                                            justify-center
+                                                            md:static md:w-[10%]
+                                                            absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
+                                                            md:flex-col flex-row
+                                                            items-center md:items-stretch
+                                                            transition-all duration-300
+                                                            "
+                                                    >
+                                                    <a href="https://github.com/AdiTiwa/QCE25" target="_blank" class="flex-1 flex items-center justify-center text-white hover:bg-[#6b5940] transition-colors duration-200">
+                                                        <i class="fab fa-github text-lg"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bg-white rounded-lg shadow-md border-l-4 border-[var(--navbar-bg)] min-h-[18rem] relative">
+                                            <div class="flex h-full">
+                                                <div class="flex-1 p-8 pr-4" style="width: 90%;">
                                                     <h4 class="text-xl font-bold mb-3">HuaHuaQ: Toy Quantum Circuit Simulator</h4>
                                                     <p class="text-gray-600 mb-4">Understanding Quantum circuits is especially difficult when computer programs are often misunderstood- and HuaHuaQ was our toy model of quantum mechanics to understand their inner workings while allowing anyone to approach the difficult topic. It allows for a range of toolings, but maintains simplicity in its synatax to allow anyone to approach the library.</p>
                                                     <div class="flex flex-wrap gap-2">
@@ -264,10 +361,10 @@
                                                     </div>
                                                 </div>
                                                 <!-- Sidebar for desktop, repositioned for mobile -->
-                                                <div class="flex flex-col bg-[#8b7355] 
-                                                            w-[10%] 
-                                                            justify-center 
-                                                            md:static md:w-[10%] 
+                                                <div class="flex flex-col bg-[#8b7355]
+                                                            w-[10%]
+                                                            justify-center
+                                                            md:static md:w-[10%]
                                                             absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
                                                             md:flex-col flex-row
                                                             items-center md:items-stretch
@@ -292,10 +389,10 @@
                                                     </div>
                                                 </div>
                                                 <!-- Sidebar for desktop, repositioned for mobile -->
-                                                <div class="flex flex-col bg-[#8b7355] 
-                                                            w-[10%] 
-                                                            justify-center 
-                                                            md:static md:w-[10%] 
+                                                <div class="flex flex-col bg-[#8b7355]
+                                                            w-[10%]
+                                                            justify-center
+                                                            md:static md:w-[10%]
                                                             absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
                                                             md:flex-col flex-row
                                                             items-center md:items-stretch
@@ -320,10 +417,10 @@
                                                     </div>
                                                 </div>
                                                 <!-- Sidebar for desktop, repositioned for mobile -->
-                                                <div class="flex flex-col bg-[#8b7355] 
-                                                            w-[10%] 
-                                                            justify-center 
-                                                            md:static md:w-[10%] 
+                                                <div class="flex flex-col bg-[#8b7355]
+                                                            w-[10%]
+                                                            justify-center
+                                                            md:static md:w-[10%]
                                                             absolute bottom-0 left-0 w-full h-[10%] md:h-full md:relative
                                                             md:flex-col flex-row
                                                             items-center md:items-stretch
@@ -339,7 +436,7 @@
 
                                     </div>
                                 </div>
-                                
+
                                 <!-- Scroll Down Button -->
                                 <button id="past-scroll-down" class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 z-10 bg-[var(--navbar-bg)] hover:bg-[#c8b197] rounded-full p-2 shadow-lg transition-colors duration-200">
                                     <i class="fas fa-chevron-down text-[var(--text-color)]"></i>
@@ -347,81 +444,27 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Proficiencies Section -->
-                    <div class="md:col-span-2 order-1 md:order-2 flex flex-col pt-4" id="proficiencies-section">
-                        <h2 class="text-3xl font-bold mb-6">Proficiencies</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- Programming Languages Block -->
-                            <div class="bg-white md:row-span-2 rounded-lg shadow-md p-6 border-l-4 border-[#8b7355]">
-                                <h3 class="text-xl font-semibold mb-3 flex items-center">
-                                    <i class="fas fa-code mr-2 text-[#8b7355]"></i> Programming Languages (Favorites!)
-                                </h3>
-                                In order of proficiency: 
-                                <div class="flex flex-wrap gap-3 pt-1">
-                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Python</span>
-                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Rust</span>
-                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">JavaScript</span>
-                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">C++</span>
-                                </div>
-                                <div class="mt-2 text-sm text-gray-600">
-                                    <ul class="list-disc list-inside">
-                                        <li>Python: Used for research, ML, scripting, and backend development.</li>
-                                        <li>Rust: Systems programming, cryptography, and high-performance applications.</li>
-                                        <li>JavaScript: Web development, interactive UIs, and tooling.</li>
-                                        <li>C++: Algorithmic programming, other low level programming.</li>
-                                    </ul>
-                                    <div class="mt-2">
-                                        <span class="font-semibold text-[#8b7355]">Other languages:</span>
-                                        <span class="ml-1">Go, Java, HTML/CSS, LaTeX</span>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <!-- Tools Block -->
-                            <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#bfa58a]">
-                                <h3 class="text-xl font-semibold mb-3 flex items-center">
-                                    <i class="fas fa-tools mr-2 text-[#bfa58a]"></i> Tools
-                                </h3>
-                                <div class="flex flex-wrap gap-3">
-                                    <span class="bg-[#f5f5dc] px-3 py-1 rounded text-sm font-medium">React</span>
-                                    <span class="bg-[#f5f5dc] px-3 py-1 rounded text-sm font-medium">Svelte</span>
-                                    <span class="bg-[#f5f5dc] px-3 py-1 rounded text-sm font-medium">Tailwind CSS</span>
-                                    <span class="bg-[#f5f5dc] px-3 py-1 rounded text-sm font-medium">Git</span>
-                                    <span class="bg-[#f5f5dc] px-3 py-1 rounded text-sm font-medium">Docker</span>
-                                </div>
-                            </div>
-                            <!-- Math Block -->
-                            <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#d9c2a3]">
-                                <h3 class="text-xl font-semibold mb-3 flex items-center">
-                                    <i class="fas fa-square-root-alt mr-2 text-[#d9c2a3]"></i> Math & Data
-                                </h3>
-                                <div class="flex flex-wrap gap-3">
-                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Linear Algebra</span>
-                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Algebra</span>
-                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Statistics</span>
-                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Calculus</span>
-                                    <span class="bg-[#eae0c8] px-3 py-1 rounded text-sm font-medium">Data Visualization</span>
-                                </div>
-                            </div>
-                            <!-- Awards Block -->
-                            <div class="bg-white md:col-span-2 rounded-lg shadow-md p-6 border-l-4 border-[#d9c2a3]">
-                                <h3 class="text-xl font-semibold mb-3 flex items-center">
-                                    <i class="fas fa-trophy mr-2 text-[#d9c2a3]"></i> Awards
-                                </h3>
-                                Chronologically:
-                                <ul class="list-disc list-inside mt-2">
-                                    <li>2023: Harvard Debate Octafinals (Top 16)</li>
-                                    <li>2023: Outstanding (2nd) Delegate at Chicago International MUN Conference</li>
-                                    <li>2025: Presented MINDSTORES at ICLR</li>
-                                </ul>
-                            </div>
+
+                    <!-- Awards Section (below the carousel) -->
+                    <div id="awards-section" class="mt-12">
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#d9c2a3]">
+                            <h3 class="text-xl font-semibold mb-3 flex items-center">
+                                <i class="fas fa-trophy mr-2 text-[#d9c2a3]"></i> Awards
+                            </h3>
+                            Chronologically:
+                            <ul class="list-disc list-inside mt-2">
+                                <li>2023: Harvard Debate Octafinals (Top 16)</li>
+                                <li>2023: Outstanding (2nd) Delegate at Chicago International MUN Conference</li>
+                                <li>2025: Presented MINDSTORES at ICLR (Reasoning and Planning for LLMs workshop)</li>
+                                <li>Fermilab "Exploring Quantum Universe" &mdash; poster on genetic ansatze for VQEs</li>
+                                <li>2025: U.S. patent pending (USPTO App #63/908,664) &mdash; decentralized heuristic mesh-network routing</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Timeline Section -->
-                <div class="order-2 flex-1 md:order-1 py-8 md:p-0"">
-                <div class="md:col-span-1 order-2 md:order-1 h-full flex flex-col" id="timeline-section">
+                <!-- Sidebar: Experience Timeline -->
+                <div class="md:col-span-1 order-2 md:order-1 h-full flex flex-col py-8 md:p-0" id="timeline-section">
                     <!-- Vertical Timeline -->
                     <div class="relative flex flex-col items-center">
                         <div class="absolute h-full w-1 bg-gradient-to-b from-[#8b7355] via-[#bfa58a] to-[#d9c2a3] z-0"></div>
@@ -437,10 +480,10 @@
                                 <!-- Card (right of timeline) -->
                                 <div class="flex-1 flex justify-start">
                                     <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#8b7355] w-80 ml-6">
-                                        <h4 class="font-semibold text-lg mb-1">Club President</h4>
-                                        <span class="text-sm text-gray-500">IMSA Code Society</span>
-                                        <p class="text-sm mt-2 text-gray-600">Hosted events, competitions, and educational workshops for IMSA's premier coding club.</p>
-                                        <span class="block mt-2 text-xs text-[#8b7355]">Spring 2024 - Present</span>
+                                        <h4 class="font-semibold text-lg mb-1">Mentorship</h4>
+                                        <span class="text-sm text-gray-500">Google Quantum AI Labs</span>
+                                        <p class="text-sm mt-2 text-gray-600">Worked under Doug Strain to explore quantum computing and new quantum initiatives.</p>
+                                        <span class="block mt-2 text-xs text-[#8b7355]">Jun 2024 - Aug 2025</span>
                                     </div>
                                 </div>
                             </div>
@@ -448,14 +491,14 @@
                             <div class="items-center w-full mb-4">
                                 <div class="flex-1"></div>
                                 <div class="flex flex-col items-center">
-                                    <div class="w-4 h-4 bg-[#8b7355] rounded-full mb-2"></div>
+                                    <div class="w-4 h-4 bg-[#bfa58a] rounded-full mb-2"></div>
                                 </div>
                                 <div class="flex-1 flex justify-start">
-                                    <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#8b7355] w-80 ml-6">
-                                        <h4 class="font-semibold text-lg mb-1">Mentorship</h4>
-                                        <span class="text-sm text-gray-500">Google Quantum AI Labs</span>
-                                        <p class="text-sm mt-2 text-gray-600">Worked under Doug Strain to explore quantum computing and new quantum initiatives.</p>
-                                        <span class="block mt-2 text-xs text-[#8b7355]">Summer 2024 - Spring 2025</span>
+                                    <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#bfa58a] w-80 ml-6">
+                                        <h4 class="font-semibold text-lg mb-1">Research Assistant</h4>
+                                        <span class="text-sm text-gray-500">a37.ai</span>
+                                        <p class="text-sm mt-2 text-gray-600">Developed papers for submission to ICML, ICLR, and TMLR.</p>
+                                        <span class="block mt-2 text-xs text-[#bfa58a]">Dec 2024 - Feb 2025</span>
                                     </div>
                                 </div>
                             </div>
@@ -467,10 +510,10 @@
                                 </div>
                                 <div class="flex-1 flex justify-start">
                                     <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#bfa58a] w-80 ml-6">
-                                        <h4 class="font-semibold text-lg mb-1">Research Assistant</h4>
-                                        <span class="text-sm text-gray-500">a37.ai</span>
-                                        <p class="text-sm mt-2 text-gray-600">Developed papers for submission to ICML, ICLR, and TMLR.</p>
-                                        <span class="block mt-2 text-xs text-[#bfa58a]">Winter 2024</span>
+                                        <h4 class="font-semibold text-lg mb-1">Research Intern</h4>
+                                        <span class="text-sm text-gray-500">Discovery Partners Institute</span>
+                                        <p class="text-sm mt-2 text-gray-600">Modeled avian flu spread based on the WHO "OneHealth" initiative, with Dr. Anuj Tiwari.</p>
+                                        <span class="block mt-2 text-xs text-[#bfa58a]">May 2025 - Aug 2025</span>
                                     </div>
                                 </div>
                             </div>
@@ -482,10 +525,10 @@
                                 </div>
                                 <div class="flex-1 flex justify-start">
                                     <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#d9c2a3] w-80 ml-6">
-                                        <h4 class="font-semibold text-lg mb-1">Editor-in-Chief</h4>
-                                        <span class="text-sm text-gray-500">IMSA Zeitgeist</span>
-                                        <p class="text-sm mt-2 text-gray-600">Founded and run student literary magazine at IMSA.</p>
-                                        <span class="block mt-2 text-xs text-[#d9c2a3]">Winter 2024 - Present</span>
+                                        <h4 class="font-semibold text-lg mb-1">Teaching Assistant</h4>
+                                        <span class="text-sm text-gray-500">IMSA</span>
+                                        <p class="text-sm mt-2 text-gray-600">Adapted Nand2Tetris for high schoolers; taught theoretical computer science and compiler design.</p>
+                                        <span class="block mt-2 text-xs text-[#d9c2a3]">Aug 2025 - May 2026</span>
                                     </div>
                                 </div>
                             </div>
@@ -493,27 +536,26 @@
                             <div class="items-center w-full mb-4">
                                 <div class="flex-1"></div>
                                 <div class="flex flex-col items-center">
-                                    <div class="w-4 h-4 bg-[#d9c2a3] rounded-full mb-2"></div>
+                                    <div class="w-4 h-4 bg-[#8b7355] rounded-full mb-2"></div>
                                 </div>
                                 <div class="flex-1 flex justify-start">
-                                    <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#d9c2a3] w-80 ml-6">
-                                        <h4 class="font-semibold text-lg mb-1">Student Experiential Learning Officer</h4>
-                                        <span class="text-sm text-gray-500">Experiential Learning Department @ IMSA</span>
-                                        <p class="text-sm mt-2 text-gray-600">Founded and run student projects as part of experential learning reform at IMSA.</p>
-                                        <span class="block mt-2 text-xs text-[#d9c2a3]">Spring 2025 - Present</span>
+                                    <div class="bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#8b7355] w-80 ml-6">
+                                        <h4 class="font-semibold text-lg mb-1">Research Intern</h4>
+                                        <span class="text-sm text-gray-500">Velexi Research Scholars</span>
+                                        <p class="text-sm mt-2 text-gray-600">Extending numerical methods for high-order-accuracy PDE solving from scalar to coupled and stochastic problems (with Dr. Kevin Chu).</p>
+                                        <span class="block mt-2 text-xs text-[#8b7355]">Jun 2026 - Present</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="bg-[var(--navbar-bg)] text-[var(--text-color)] py-6 text-center w-full">
-            <p>&copy; 2025 Aditya Tiwari.</p>
+            <p>&copy; 2026 Aditya Tiwari &middot; <a href="mailto:aditya.tiwari@duke.edu" class="underline">aditya.tiwari@duke.edu</a> &middot; aditiwa.github.io</p>
         </footer>
 
         <!-- Three.js Background Animation Script -->
@@ -523,44 +565,44 @@
                 // Three.js setup for background animation
                 const canvas = document.getElementById('bg-canvas');
                 const heroSection = document.getElementById('hero');
-                
+
                 if (!canvas || !heroSection) {
                     console.error('Canvas or hero section not found');
                     return;
                 }
-                
+
                 const scene = new THREE.Scene();
                 const camera = new THREE.PerspectiveCamera(75, heroSection.offsetWidth / heroSection.offsetHeight, 0.1, 1000);
                 const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-                
+
                 // Size canvas to hero section
                 renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
                 renderer.setClearColor(0x000000, 0); // Transparent background
-                
+
                 // Create dodecahedron geometry
                 const geometry = new THREE.DodecahedronGeometry(10, 0);
-                
+
                 // Create wireframe material with subtle color
-                const material = new THREE.MeshBasicMaterial({ 
+                const material = new THREE.MeshBasicMaterial({
                     color: 0xf5f5dc, // Matching the hero gradient end color
                     wireframe: true,
                     transparent: true,
                     opacity: 0.3
                 });
-                
+
                 // Create the dodecahedron mesh
                 const dodecahedron = new THREE.Mesh(geometry, material);
                 scene.add(dodecahedron);
-                
+
                 // Create vertex labels
                 const vertices = geometry.attributes.position.array;
                 const uniqueVertices = [];
                 const vertexLabels = [];
-                
+
                 // Extract unique vertices (dodecahedron has 20 vertices)
                 for (let i = 0; i < vertices.length; i += 3) {
                     const vertex = new THREE.Vector3(vertices[i], vertices[i + 1], vertices[i + 2]);
-                    
+
                     // Check if this vertex already exists (within tolerance)
                     let isUnique = true;
                     for (let j = 0; j < uniqueVertices.length; j++) {
@@ -569,73 +611,73 @@
                             break;
                         }
                     }
-                    
+
                     if (isUnique) {
                         uniqueVertices.push(vertex);
                     }
                 }
-                
+
                 // Create canvas for text texture
                 function createTextTexture(text) {
                     const canvas = document.createElement('canvas');
                     const context = canvas.getContext('2d');
                     canvas.width = 64;
                     canvas.height = 64;
-                    
+
                     // Clear canvas
                     context.clearRect(0, 0, canvas.width, canvas.height);
-                    
+
                     // Set text properties
                     context.font = '18px Arial';
                     context.fillStyle = '#4b3f2f';
                     context.textAlign = 'center';
                     context.textBaseline = 'middle';
-                    
+
                     // Add text
                     context.fillText(text, 32, 32);
-                    
+
                     return new THREE.CanvasTexture(canvas);
                 }
-                
+
                 // Create billboards for each unique vertex
                 uniqueVertices.forEach((vertex, index) => {
                     const texture = createTextTexture((index + 1).toString());
-                    const spriteMaterial = new THREE.SpriteMaterial({ 
+                    const spriteMaterial = new THREE.SpriteMaterial({
                         map: texture,
                         transparent: true,
                         opacity: 0.8
                     });
-                    
+
                     const sprite = new THREE.Sprite(spriteMaterial);
                     sprite.position.copy(vertex);
                     sprite.scale.set(1.2, 1.2, 1); // Slightly larger labels
-                    
+
                     // Add sprite to dodecahedron so it rotates with it
                     dodecahedron.add(sprite);
                     vertexLabels.push(sprite);
                 });
-                
+
                 // Position camera
                 camera.position.z = 8;
                 camera.position.y = 4;
-                
+
                 // Animation loop
                 function animate() {
                     requestAnimationFrame(animate);
-                    
+
                     // Rotate the dodecahedron (and its vertex labels)
                     dodecahedron.rotation.x += 0.003;
                     dodecahedron.rotation.y += 0.005;
                     dodecahedron.rotation.z += 0.002;
-                    
+
                     // Update billboard orientations to always face camera
                     vertexLabels.forEach(sprite => {
                         sprite.lookAt(camera.position);
                     });
-                    
+
                     renderer.render(scene, camera);
                 }
-                
+
                 // Handle window resize
                 window.addEventListener('resize', () => {
                     const heroRect = heroSection.getBoundingClientRect();
@@ -643,89 +685,21 @@
                     camera.updateProjectionMatrix();
                     renderer.setSize(heroRect.width, heroRect.height);
                 });
-                
+
                 // Start animation
                 animate();
-                
+
                 console.log('Three.js initialized successfully with', uniqueVertices.length, 'vertex labels');
             });
         </script>
 
-        <!-- JavaScript to toggle navbar visibility and carousel functionality -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const heroSection = document.getElementById('hero');
-                // Note: navbarWrapper doesn't exist in current code, so removing that part
-
-                // Carousel functionality
-                function setupCarousel(carouselId, upButtonId, downButtonId) {
-                    const carousel = document.getElementById(carouselId);
-                    const upButton = document.getElementById(upButtonId);
-                    const downButton = document.getElementById(downButtonId);
-
-                    if (!carousel || !upButton || !downButton) {
-                        console.warn(`Carousel elements not found for ${carouselId}`);
-                        return;
-                    }
-
-                    const cards = carousel.children;
-                    if (cards.length === 0) return;
-
-                    let cardsPerView = 2;
-                    let cardHeight = cards[0].offsetHeight + 16; // card height + gap
-                    let currentIndex = 0;
-
-                    function getMaxIndex() {
-                        return Math.max(0, cards.length - cardsPerView);
-                    }
-
-                    function updateCarousel() {
-                        // Recalculate cardHeight and cardsPerView on resize
-                        cardHeight = cards[0].offsetHeight + 16;
-                        // Optionally, adjust cardsPerView based on screen size if needed
-                        // cardsPerView = window.innerWidth < 768 ? 1 : 2;
-                        const translateY = -currentIndex * cardHeight;
-                        carousel.style.transform = `translateY(${translateY}px)`;
-
-                        // Update button states
-                        upButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
-                        downButton.style.opacity = currentIndex >= getMaxIndex() ? '0.5' : '1';
-                        upButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
-                        downButton.style.pointerEvents = currentIndex >= getMaxIndex() ? 'none' : 'auto';
-                    }
-
-                    upButton.addEventListener('click', () => {
-                        if (currentIndex > 0) {
-                            currentIndex--;
-                            updateCarousel();
-                        }
-                    });
-
-                    downButton.addEventListener('click', () => {
-                        if (currentIndex < getMaxIndex()) {
-                            currentIndex++;
-                            updateCarousel();
-                        }
-                    });
-
-                    // Responsive: update cardHeight and carousel position on resize
-                    window.addEventListener('resize', () => {
-                        updateCarousel();
-                    });
-
-                    // Initialize
-                    updateCarousel();
-                }
-
-                // Setup both carousels
-                setupCarousel('current-projects-carousel', 'current-scroll-up', 'current-scroll-down');
-                setupCarousel('past-projects-carousel', 'past-scroll-up', 'past-scroll-down');
-            });
-        </script>
-
-        <!-- Equalize Carousel Card Heights Script -->
+        <!-- Equalize Carousel Card Heights Script (2 cards visible at a time) -->
         <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Number of carousel cards visible at once
+            const VISIBLE_COUNT = 2;
+            const GAP = 16; // matches space-y-4
+
             // Utility to set all cards in both carousels to the same height (the tallest)
             function equalizeCarouselCardHeights(carouselIds, containerIds) {
                 let maxHeight = 0;
@@ -745,18 +719,17 @@
                 allCards.forEach(card => {
                     card.style.height = maxHeight + 'px';
                 });
-                // Set containers to match card height (plus gap if needed)
+                // Set containers to fit VISIBLE_COUNT cards (plus gaps between them)
                 containerIds.forEach(id => {
                     const container = document.getElementById(id);
                     if (container) {
-                        // If you have a gap between cards, add it here (e.g., 16px)
-                        container.style.height = (maxHeight + 16) + 'px';
+                        container.style.height = (maxHeight * VISIBLE_COUNT + GAP * (VISIBLE_COUNT - 1)) + 'px';
                     }
                 });
                 return maxHeight;
             }
 
-            // Carousel functionality for one card at a time
+            // Carousel functionality: VISIBLE_COUNT cards at a time, one-card scroll steps
             function setupCarousel(carouselId, upButtonId, downButtonId, containerId) {
                 const carousel = document.getElementById(carouselId);
                 const upButton = document.getElementById(upButtonId);
@@ -771,18 +744,17 @@
                 const cards = carousel.children;
                 if (cards.length === 0) return;
 
-                let cardsPerView = 1;
-                let cardHeight = cards[0].offsetHeight + 16; // card height + gap
+                let cardHeight = cards[0].offsetHeight + GAP; // card height + gap
                 let currentIndex = 0;
 
                 function getMaxIndex() {
-                    return Math.max(0, cards.length - cardsPerView);
+                    return Math.max(0, cards.length - VISIBLE_COUNT);
                 }
 
                 function updateCarousel() {
                     // Re-equalize heights and recalculate cardHeight
-                    cardHeight = cards[0].offsetHeight + 16;
-                    if (container) container.style.height = cardHeight + 'px';
+                    cardHeight = cards[0].offsetHeight + GAP;
+                    if (container) container.style.height = (VISIBLE_COUNT * cardHeight - GAP) + 'px';
                     const translateY = -currentIndex * cardHeight;
                     carousel.style.transform = `translateY(${translateY}px)`;
 
